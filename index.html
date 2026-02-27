@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Colegio Bilbao: Formación integral K-12 en CDMX. Un modelo humanista, bilingüe y con excelencia académica para el futuro de tus hijos.">
+    <meta name="robots" content="index, follow">
+    
+    <title>Colegio Bilbao | Formando personas para la vida</title>
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="assets/img/global/favicon.png" type="image/png">
+    <link rel="icon" href="assets/img/global/favicon.png" type="image/png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XVWCDM02P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8XVWCDM02P');
+    </script>
+
+    <!-- Tipografía Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. VARIABLES & RESET --- */
+        :root {
+            --bg-global: #FFFFFF;
+            --bg-offwhite: #F8FAFC;
+            --col-bilbao: #4D8ABB;
+            --col-espiritu: #7DC6E5;
+            --col-herencia: #374C69;
+            --col-texto: #1F2937;
+            --col-blanco: #FFFFFF;
+            --col-borde: #E2E8F0;
+            
+            --header-height: 90px;
+            
+            --radius-xl: 40px;
+            --shadow-glow: 0 0 60px rgba(77, 138, 187, 0.15);
+            --transition-bezi: cubic-bezier(0.25, 0.8, 0.25, 1);
+            
+            /* Variables para tarjetas */
+            --radius-card: 24px;
+            --shadow-card: 0 15px 35px rgba(0,0,0,0.1);
+            --sp-xl: 80px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-global);
+            color: var(--col-texto);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.4s var(--transition-bezi); }
+        ul { list-style: none; }
+        button { font-family: inherit; border: none; background: none; cursor: pointer; }
+        img { max-width: 100%; height: auto; display: block; }
+        p { margin-bottom: 1rem; font-weight: 400; }
+        
+        /* Utilidades */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--col-bilbao) 0%, var(--col-espiritu) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* --- HEADER & MENU STYLES (INTACTOS) --- */
+        .header-bar { position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height); background-color: rgba(255, 255, 255, 0.98); border-bottom: 1px solid rgba(77, 138, 187, 0.1); display: flex; align-items: center; justify-content: center; padding: 0 24px; z-index: 1000; }
+        .header-inner { width: 100%; max-width: 1280px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { display: flex; align-items: center; z-index: 1002; height: 100%; }
+        .logo-img { height: 67px; width: auto; object-fit: contain; }
+        .header-controls { display: flex; align-items: center; gap: 24px; z-index: 1002; }
+        .lang-switch { font-size: 0.9rem; font-weight: 600; color: var(--col-herencia); }
+        .lang-switch span.active { color: var(--col-bilbao); text-decoration: underline; text-underline-offset: 4px; }
+        .menu-trigger { display: flex; align-items: center; justify-content: center; padding: 8px; color: var(--col-bilbao); }
+        .hamburger-icon { width: 28px; height: 20px; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background-color: var(--col-bilbao); border-radius: 2px; transition: all 0.3s ease; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: var(--bg-global); z-index: 2000; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; overflow-y: auto; }
+        .menu-overlay[aria-hidden="false"] { opacity: 1; visibility: visible; }
+        .overlay-header { flex-shrink: 0; height: var(--header-height); display: flex; align-items: center; justify-content: center; padding: 0 24px; border-bottom: 1px solid rgba(77, 138, 187, 0.1); }
+        .close-btn { width: 44px; height: 44px; position: relative; color: var(--col-bilbao); }
+        .close-btn::before, .close-btn::after { content: ''; position: absolute; top: 50%; left: 50%; width: 24px; height: 2px; background-color: currentColor; }
+        .close-btn::before { transform: translate(-50%, -50%) rotate(45deg); }
+        .close-btn::after { transform: translate(-50%, -50%) rotate(-45deg); }
+        .overlay-content { flex-grow: 1; width: 100%; max-width: 800px; margin: 0 auto; padding: 32px 24px; }
+        .nav-accordion-item { border-bottom: 1px solid var(--col-borde); }
+        .nav-accordion-trigger { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 24px 0; font-size: 1.5rem; font-weight: 700; color: var(--col-herencia); text-align: left; transition: color 0.2s; }
+        .nav-accordion-trigger:hover, .nav-accordion-trigger[aria-expanded="true"] { color: var(--col-bilbao); }
+        .nav-accordion-trigger .chevron { transition: transform 0.3s ease; font-size: 1rem; }
+        .nav-accordion-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+        .nav-submenu { display: none; padding-bottom: 24px; padding-left: 24px; border-left: 2px solid var(--col-espiritu); margin-left: 4px; }
+        .nav-submenu li { margin-bottom: 16px; }
+        .nav-submenu a { font-size: 1.1rem; color: var(--col-texto); font-weight: 500; }
+        .nav-submenu a:hover { color: var(--col-bilbao); }
+        .no-scroll { overflow: hidden; }
+
+        /* --- ANIMACIONES GLOBALES --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition-smooth); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- PAGE STYLES --- */
+        main { padding-top: 0; } 
+
+        /* 1. HERO  */
+        .hero-flagship {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .hero-video-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            will-change: opacity;
+        }
+        
+        .hero-fallback {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('assets/img/home/hero-home.jpg'); 
+            background-size: cover; background-position: center;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(55, 76, 105, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            max-width: 1200px;
+            will-change: transform, opacity;
+        }
+
+        .hero-subtitle-tag {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            background: var(--col-bilbao); 
+            padding: 10px 24px;
+            border-radius: 50px;
+            animation: fadeInDown 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 9vw, 6.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            letter-spacing: -2px;
+            min-height: 1.2em;
+            text-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            transform-style: preserve-3d;
+            transform-origin: center center -40px;
+            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s backwards;
+        }
+
+        .hero-cta-wrapper {
+            margin-top: 40px;
+            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s backwards;
+        }
+
+        .btn-epic {
+            display: inline-block;
+            padding: 18px 40px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--col-espiritu);
+            color: white;
+            box-shadow: 0 10px 30px rgba(77, 138, 187, 0.4);
+        }
+        
+        .btn-epic:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 20px 40px rgba(77, 138, 187, 0.6); 
+            background-color: white; 
+            color: var(--col-bilbao);
+        }
+        
+        @keyframes fadeInDown { from{opacity:0; transform:translateY(-30px);} to{opacity:1; transform:translateY(0);} }
+        @keyframes fadeInUp { from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+
+
+ /* --- 2: BIENVENIDA --- */
+        .welcome-section {
+            padding: 140px 20px;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .welcome-lead {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--col-herencia);
+            font-weight: 300;
+            line-height: 1.3;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .welcome-lead strong {
+            font-weight: 800;
+            color: var(--col-bilbao);
+            position: relative;
+        }
+        .welcome-lead strong::after {
+            content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 15px;
+            background: rgba(125, 198, 229, 0.2); z-index: -1; transform: skewX(-10deg);
+        }
+
+
+/* 3. STATS  */
+        .stats-banner {
+            background-color: transparent;
+            padding: 0;
+            position: relative; z-index: 10;
+            margin-top: -80px; /* Overlap hero */
+            box-shadow: none;
+            pointer-events: none;
+        }
+        
+        /* New wrapper for the card look */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 Columns */
+            background: white;
+            border-radius: var(--radius-card);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            pointer-events: auto;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1px; background: #f0f0f0; } 
+        }
+
+        .stat-item {
+            padding: 3rem 1rem;
+            text-align: center;
+            position: relative;
+            background: white;
+        }
+        
+        /* Divider lines for desktop */
+        @media (min-width: 769px) {
+            .stat-item:not(:last-child)::after {
+                content: ''; position: absolute; right: 0; top: 25%; height: 50%;
+                width: 1px; background-color: rgba(0,0,0,0.1);
+            }
+        }
+
+        .stat-item h3 { 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            color: var(--col-bilbao); 
+            margin-bottom: 0.5rem; 
+            line-height: 1;
+            font-variant-numeric: tabular-nums; 
+        }
+        
+        .stat-item p { 
+            font-size: 0.85rem; 
+            font-weight: 700;
+            color: var(--text-gray);
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin: 0;
+        }
+
+ /* --- 4: NIVELES ACADÉMICOS  --- */
+        .levels-section { padding-bottom: 120px; padding-top: 80px; }
+        .section-header-center { text-align: center; margin-bottom: 60px; }
+        .section-tag { text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.9rem; color: var(--col-espiritu); }
+
+        .levels-container {
+            display: flex; width: 100%; height: 600px; max-width: 1400px; margin: 0 auto; gap: 10px; padding: 0 20px;
+        }
+
+        @media (max-width: 1023px) {
+            .levels-container { flex-direction: column; height: auto; gap: 20px; }
+        }
+
+        .level-card {
+            position: relative; flex: 1; border-radius: 30px; overflow: hidden; cursor: pointer;
+            transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1); min-width: 100px;
+            transform: translateZ(0); 
+        }
+        
+        @media (max-width: 1023px) { .level-card { height: 350px; flex: none; width: 100%; } }
+        @media (min-width: 1024px) { .level-card:hover { flex: 4; } }
+
+        .level-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; transition: transform 0.6s;
+            filter: brightness(0.85); will-change: transform;
+        }
+        .level-card:hover .level-bg { transform: scale(1.05); filter: brightness(0.6); }
+
+        .level-content {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 80%);
+            color: white; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0.9;
+        }
+
+        .panel-num {
+            font-size: 5rem; font-weight: 900; opacity: 0.2; position: absolute; top: 20px; right: 20px;
+            line-height: 1; transition: opacity 0.3s;
+        }
+        .level-panel:hover .panel-num { opacity: 1; }
+
+        .level-title {
+            font-size: 2rem; font-weight: 800; margin-bottom: 10px; transform-origin: left;
+            transition: all 0.5s; white-space: nowrap;
+        }
+        
+        @media (min-width: 1024px) {
+            .level-card:not(:hover) .level-title { 
+                transform: rotate(-90deg) translate(0px, -50%); 
+                position: absolute; bottom: 100px; left: 50%; margin: 0;
+            }
+            .level-card:hover .level-title {
+                transform: rotate(0deg); position: relative; bottom: auto; left: auto;
+            }
+        }
+
+        .level-desc {
+            font-size: 1.1rem; opacity: 0; max-height: 0; transition: all 0.5s; overflow: hidden;
+        }
+        .level-card:hover .level-desc, .level-card:active .level-desc { opacity: 1; max-height: 200px; margin-top: 10px; }
+        @media (max-width: 1023px) { .level-desc { opacity: 1; max-height: auto; } }
+
+        .level-link {
+            display: inline-block; margin-top: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            border-bottom: 2px solid var(--col-espiritu); padding-bottom: 4px; opacity: 0; transform: translateY(20px); transition: 0.5s 0.1s;
+        }
+        .level-card:hover .level-link { opacity: 1; transform: translateY(0); }
+        @media (max-width: 1023px) { .level-link { opacity: 1; transform: translateY(0); } }
+
+  /* 5. MODELO VIDA  */
+        .vida-showcase {
+            background-color: var(--col-herencia); color: white; padding: 120px 20px;
+            position: relative; overflow: hidden; text-align: center;
+        }
+        
+        /* Formas abstractas de fondo */
+        .vida-blob {
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; pointer-events: none;
+        }
+        .blob-1 { top: -100px; left: -100px; width: 500px; height: 500px; background: var(--col-bilbao); }
+        .blob-2 { bottom: -100px; right: -100px; width: 400px; height: 400px; background: var(--col-espiritu); }
+
+        .vida-container { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+        
+        .vida-h2 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; color: white; }
+        .vida-p { font-size: 1.2rem; margin-bottom: 60px; color: rgba(255,255,255,0.9); }
+        
+        .vida-grid-new {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .vida-card-new {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            cursor: default;
+        }
+
+        .vida-card-new::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--col-espiritu), var(--col-bilbao));
+            transform: scaleX(0); transition: transform 0.4s ease; transform-origin: left;
+        }
+        .vida-card-new:hover::before { transform: scaleX(1); }
+
+        .vida-card-new:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .vc-letter {
+            font-size: 5rem; font-weight: 900; color: white; opacity: 0.2;
+            line-height: 1; margin-bottom: 10px; transition: 0.4s;
+            display: block;
+        }
+        .vida-card-new:hover .vc-letter { opacity: 1; color: var(--col-espiritu); transform: scale(1.1); }
+
+        .vc-title { font-size: 1.5rem; color: white; font-weight: 700; margin-bottom: 8px; display: block;}
+        .vc-desc { font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.4; }
+
+/* --- 6: CAROUSEL (Vida en el Campus) --- */
+        .carousel-section {
+            padding: var(--sp-xl) 0;
+            background-color: white;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel-track-wrapper { width: 100%; overflow: hidden; }
+
+        .carousel-track {
+            display: flex;
+            width: calc(400px * 12); /* Adjusted width to fit slides */
+            animation: scrollCarousel 40s linear infinite;
+        }
+        
+        .carousel-track:hover { animation-play-state: paused; }
+
+        .carousel-slide {
+            width: 400px;
+            height: 500px;
+            margin-right: 20px;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            flex-shrink: 0;
+            display: block; /* Make sure anchor works */
+        }
+        
+        .carousel-slide img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            padding: 2rem;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            display: flex; flex-direction: column; justify-content: flex-end;
+        }
+        
+        .carousel-slide:hover img { transform: scale(1.1); }
+        .carousel-slide:hover .carousel-overlay { transform: translateY(0); }
+        
+        .slide-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: white;}
+        .slide-cta { font-size: 0.9rem; text-transform: uppercase; font-weight: 600; color: var(--col-espiritu); }
+
+        @keyframes scrollCarousel {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-400px * 5)); } 
+        }
+
+        /** 7. COMENTARIOS **/
+       .voices-section {
+            padding: 100px 0;
+            background-color: var(--bg-offwhite);
+            overflow: hidden;
+        }
+        
+        .voices-header { text-align: center; margin-bottom: 60px; padding: 0 20px; }
+        .voices-title { font-size: 2.5rem; color: var(--col-herencia); font-weight: 700; }
+        
+        .marquee-container {
+            position: relative; width: 100%; overflow: hidden;
+        }
+        
+        .marquee-track {
+            display: flex; gap: 30px;
+            width: max-content;
+            animation: scrollMarquee 40s linear infinite;
+            will-change: transform;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+        
+        @keyframes scrollMarquee { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
+        
+        .voice-card {
+            width: 350px; flex-shrink: 0;
+            background: white;
+            border-radius: 20px; padding: 30px;
+            border: 1px solid var(--col-borde);
+            transition: transform 0.3s;
+        }
+        .voice-card:hover { transform: scale(1.02); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        .voice-quote { font-size: 1.1rem; color: var(--col-texto); font-style: italic; margin-bottom: 20px; }
+        .voice-author { display: flex; align-items: center; gap: 12px; }
+        .author-avatar { width: 50px; height: 50px; border-radius: 50%; background: #ddd; object-fit: cover; }
+        .author-info strong { display: block; color: var(--col-bilbao); font-size: 0.95rem; }
+        .author-info span { font-size: 0.85rem; color: #999; }
+
+
+
+ /* 8. NOTICIAS  */
+        .news-section {
+            padding: var(--sp-xl) 20px;
+            background-color: var(--bg-global);
+        }
+        .news-container { max-width: 1200px; margin: 0 auto; }
+        
+        .news-grid {
+            display: grid; gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 1024px) {
+            .news-grid { 
+                grid-template-columns: 2fr 1fr; 
+                grid-template-rows: repeat(2, 300px);
+            }
+            .news-item.featured { grid-row: 1 / 3; }
+        }
+        
+        .news-item {
+            position: relative; border-radius: var(--radius-card); overflow: hidden;
+            background: white; box-shadow: var(--shadow-card);
+            transition: transform 0.3s;
+            display: block; text-decoration: none;
+            min-height: 300px; /* Fallback height */
+        }
+        .news-item:hover { transform: translateY(-5px); }
+        
+        .news-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .news-item:hover .news-img { transform: scale(1.05); }
+
+        .news-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            padding: 2rem; 
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+            color: white;
+            text-align: left;
+        }
+        .news-date { font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; display: block; opacity: 0.8; font-weight: 600; color: var(--col-espiritu); }
+        .news-title-card { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: white; }
+        
+
+/* 9. ALUMNI */
+        .alumni-section {
+            background-color: var(--col-herencia); color: white;
+            padding: 100px 20px; position: relative; overflow: hidden;
+            text-align: center;
+        }
+        .alumni-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .alumni-title { font-size: 2.5rem; font-weight: 800; color: var(--col-espiritu); margin-bottom: 1rem; }
+        .alumni-text { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; color: white; }
+        .btn-alumni {
+            display: inline-block; padding: 16px 36px; border-radius: 50px;
+            background: transparent; border: 2px solid var(--col-espiritu);
+            color: var(--col-espiritu); font-weight: 700; text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-alumni:hover { background: var(--col-espiritu); color: var(--col-herencia); }
+
+        /* 10. CTA */
+        .final-cta {
+            padding: 140px 20px; text-align: center;
+            background: radial-gradient(circle at center, #F0F9FF 0%, #FFFFFF 70%);
+        }
+        .cta-big-h2 { font-size: clamp(2rem, 5vw, 3.5rem); color: var(--col-herencia); font-weight: 800; margin-bottom: 30px; line-height: 1.2; }
+        .btn-final {
+            display: inline-flex; align-items: center; justify-content: center;
+            background-color: var(--col-bilbao); color: white;
+            padding: 20px 50px; border-radius: 100px;
+            font-size: 1.2rem; font-weight: 700;
+            box-shadow: 0 20px 40px rgba(77, 138, 187, 0.4);
+            transition: 0.3s;
+        }
+        .btn-final:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 30px 60px rgba(77, 138, 187, 0.5); }
+
+        /* FOOTER (Copia Exacta) */
+        footer { background-color: var(--bg-global); border-top: 1px solid var(--col-borde); padding-top: 60px; font-size: 0.95rem; color: var(--col-herencia); }
+        .footer-container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .footer-header { display: flex; flex-direction: column; margin-bottom: 40px; align-items: flex-start; }
+        .footer-logo-link { display: inline-block; margin-bottom: 16px; }
+        .footer-logo-img { height: 77px; width: auto; object-fit: contain; display: block; }
+        .footer-social-desktop { display: none; }
+        .social-link { display: inline-flex; align-items: center; justify-content: center; color: var(--col-herencia); margin-right: 12px; transition: 0.2s; }
+        .social-link:hover { color: var(--col-bilbao); transform: translateY(-2px); }
+        .social-icon { width: 20px; height: 20px; fill: currentColor; }
+        .footer-grid { display: grid; gap: 40px; grid-template-columns: 1fr; }
+        .footer-desc { margin-bottom: 24px; font-size: 0.9rem; line-height: 1.6; text-align: left; }
+        .footer-contact p { margin-bottom: 8px; text-align: left; font-weight: 400; }
+        .footer-contact a { font-weight: 600; color: var(--col-bilbao); }
+        .footer-social-mobile { margin-top: 24px; margin-bottom: 32px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        .footer-col-title { font-weight: 700; color: var(--col-bilbao); margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .footer-links { display: none; margin-bottom: 24px; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a:hover { color: var(--col-espiritu); text-decoration: underline; }
+        .footer-legal { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--col-borde); font-size: 0.8rem; display: flex; flex-direction: column; gap: 16px; text-align: center; opacity: 0.8; }
+        .legal-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+        .visible { display: block !important; }
+        .rotate { transform: rotate(180deg); }
+        @media (min-width: 600px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-identity { grid-column: span 2; } }
+        @media (min-width: 1024px) { 
+            .footer-header { flex-direction: row; justify-content: space-between; align-items: center; }
+            .footer-social-desktop { display: flex; gap: 16px; align-items: center; }
+            .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; }
+            .footer-identity { grid-column: auto; }
+            .footer-links { display: block !important; }
+            .footer-col-title { pointer-events: none; cursor: default; }
+            .footer-col-title .chevron { display: none; }
+            .footer-social-mobile { display: none; }
+            .footer-legal { flex-direction: row; justify-content: space-between; text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header-bar">
+        <div class="header-inner">
+            <a href="/" class="logo-link"><img src="assets/img/global/logo-bilbao-horizontal-azul.png" alt="Colegio Bilbao" class="logo-img"></a>
+            <div class="header-controls">
+                <div class="lang-switch"><span class="active">ES</span> | <a href="/en/">EN</a></div>
+                <button class="menu-trigger"><div class="hamburger-icon"><span></span><span></span><span></span></div></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- OVERLAY MENU -->
+    <div id="menu-overlay" class="menu-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Menú principal">
+        <div class="overlay-header">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="assets/img/global/logo-bilbao-horizontal-azul.png" alt="Colegio Bilbao" class="logo-img"></a>
+                <div class="header-controls">
+                    <div class="lang-switch"><span class="active">ES</span> | <a href="/en/">EN</a></div>
+                    <button id="close-menu-btn" class="close-btn" aria-label="Cerrar menú"></button>
+                </div>
+            </div>
+        </div>
+        <nav class="overlay-content">
+            <ul id="primary-nav">
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Conócenos <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/conocenos/quienes-somos/">Quiénes somos</a></li><li><a href="/conocenos/equipo-educativo/">Equipo educativo</a></li><li><a href="/conocenos/instalaciones/">Instalaciones</a></li><li><a href="/conocenos/certificaciones-y-reconocimientos/">Certificaciones y reconocimientos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Modelo educativo <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/modelo-educativo/modelo-vida/">Modelo VIDA</a></li><li><a href="/modelo-educativo/filosofia-y-metodologia/">Filosofía</a></li><li><a href="/modelo-educativo/aprendizaje-integral/">Aprendizaje integral</a></li><li><a href="/modelo-educativo/idiomas/">Idiomas</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Niveles académicos <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/niveles-academicos/preescolar/">Preescolar</a></li><li><a href="/niveles-academicos/primaria/">Primaria</a></li><li><a href="/niveles-academicos/secundaria/">Secundaria</a></li><li><a href="/niveles-academicos/preparatoria/">Preparatoria</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Vida escolar <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/vida-escolar/afterschool-extracurriculares/">Afterschool</a></li><li><a href="/vida-escolar/futuro-universitario-becas/">Futuro universitario</a></li><li><a href="/vida-escolar/programa-dual/">Programa Dual</a></li><li><a href="/vida-escolar/servicios-para-familias/">Servicios</a></li><li><a href="/vida-escolar/cuidado-y-bienestar/">Cuidado y bienestar</a></li><li><a href="/vida-escolar/eventos-y-tradiciones/">Eventos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Admisiones <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/admisiones/">Inicio</a></li><li><a href="/admisiones/proceso/">Proceso</a></li><li><a href="/admisiones/preguntas-frecuentes/">FAQ</a></li><li><a href="/admisiones/convenios/">Convenios</a></li><li><a href="/admisiones/convocatoria-becas/">Becas</a></li><li><a href="/admisiones/contacto/">Contacto</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Comunidad <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/comunidad/estudiantes/">Estudiantes</a></li><li><a href="/comunidad/familias/">Familias</a></li><li><a href="/comunidad/exalumnos/">Exalumnos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Voces Bilbao <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/voces-bilbao/noticias/">Noticias</a></li><li><a href="/voces-bilbao/entrevistas/">Entrevistas</a></li><li><a href="/voces-bilbao/articulos/">Artículos</a></li><li><a href="/voces-bilbao/testimonios/">Testimonios</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Contacto <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/contacto/">Contacto</a></li><li><a href="/contacto/directorio/">Directorio</a></li><li><a href="/contacto/cultura-y-talento/">Cultura y talento</a></li><li><a href="/contacto/proveedores/">Proveedores</a></li></ul></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        
+        <!-- 1. HERO -->
+        <section class="hero-flagship">
+            <!-- Video Container -->
+            <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata" poster="assets/img/home/poster.jpg" decoding="async">
+                <source src="assets/img/home/hero-video.mp4" type="video/mp4">
+            </video>
+            <!-- Fallback Image -->
+            <div class="hero-fallback hero-video-bg"></div>
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <span class="hero-subtitle-tag">Este es tu lugar: <strong>Colegio Bilbao</strong></span>
+                
+                <!-- Frase Cambiante (Efecto 3D Cilindro) -->
+                <h1 class="hero-title" id="dynamic-hero-title">Learning to become yourself</h1>
+                
+                <div class="hero-cta-wrapper">
+                    <a href="https://wa.me/525614612682?text=Hola,%20acabo%20de%20ver%20la%20página%20del%20colegio,%20me%20gustó%20y%20quiero%20conocerlos%20en%20una%20visita%20guiada." class="btn-epic btn-epic-primary">Agenda tu visita</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. BIENVENIDA -->
+        <section class="welcome-section reveal">
+            <h2 class="welcome-lead">
+                Más que una escuela, somos una <strong>comunidad que se vive.</strong>
+            </h2>
+            <div style="width:60px; height:4px; background:var(--col-bilbao); margin:20px auto; border-radius:2px;"></div>
+            <p style="max-width:800px; margin:0 auto; font-size:1.15rem; color:var(--col-herencia);">
+                Bienvenidos al Colegio Bilbao. Somos una escuela privada K-12 en la zona poniente de CDMX. Formamos criterio, autonomía y sensibilidad humana, con acompañamiento cercano. Gracias por considerarnos para tu familia.
+            </p>
+        </section>
+
+ <!-- 3. STATS  -->
+        <section class="stats-banner"> <!-- Wrapper to center -->
+            <div class="stats-grid"> <!-- The Card -->
+                <div class="stat-item reveal">
+                    <h3 data-target="38" data-plus="true">0</h3>
+                    <p>Años de experiencia</p>
+                </div>
+                <div class="stat-item reveal" style="transition-delay:0.1s">
+                    <h3 data-target="30000" data-suffix="m²">0</h3>
+                    <p>de bosque como aula</p>
+                </div>
+                <div class="stat-item reveal" style="transition-delay:0.2s">
+                    <h3 data-target="3">0</h3>
+                    <p>Idiomas</p>
+                </div>
+                <div class="stat-item reveal" style="transition-delay:0.3s">
+                    <h3 data-target="200" data-plus="true">0</h3>
+                    <p>Universidades aliadas</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4. NIVELES ACADÉMICOS -->
+        <section class="levels-section reveal">
+            <div class="section-header-center">
+                <h2 style="font-size:2.5rem; color:var(--col-bilbao); margin-top:10px;">Nuestra oferta educativa</h2>
+<span class="section-tag">Un mismo proyecto educativo, con objetivos claros por nivel</span>
+            </div>
+            
+            <div class="levels-container">
+                <!-- Preescolar -->
+                <a href="niveles-academicos/preescolar/" class="level-card">
+                    <img src="assets/img/niveles-academicos/preescolar/nino-burbujas.jpg" alt="Preescolar" class="level-bg" loading="lazy">
+                    <div class="level-content">
+                        <span class="panel-num">01</span>
+                        <h3 class="level-title">Preescolar</h3>
+                        <div class="level-desc">Juego, exploración y seguridad emocional para sus primeros pasos.</div>
+                        <span class="level-link">Ver nivel →</span>
+                    </div>
+                </a>
+                
+                <!-- Primaria -->
+                <a href="niveles-academicos/primaria/" class="level-card">
+                    <img src="assets/img/niveles-academicos/primaria/alumnos-abrazados.jpg" alt="Primaria" class="level-bg" loading="lazy">
+                    <div class="level-content">
+                        <span class="panel-num">02</span>
+                        <h3 class="level-title">Primaria</h3>
+                        <div class="level-desc">Aprendizaje activo, curiosidad y fundamentos sólidos.</div>
+                        <span class="level-link">Ver nivel →</span>
+                    </div>
+                </a>
+
+                <!-- Secundaria -->
+                <a href="niveles-academicos/secundaria/" class="level-card">
+                    <img src="assets/img/niveles-academicos/secundaria/alumnas-argumentando.jpg" alt="Secundaria" class="level-bg" loading="lazy">
+                    <div class="level-content">
+                        <span class="panel-num">03</span>
+                        <h3 class="level-title">Secundaria</h3>
+                        <div class="level-desc">Pensamiento crítico, diálogo y acompañamiento en la adolescencia.</div>
+                        <span class="level-link">Ver nivel →</span>
+                    </div>
+                </a>
+
+                <!-- Preparatoria -->
+                <a href="niveles-academicos/preparatoria/" class="level-card">
+                    <img src="assets/img/niveles-academicos/preparatoria/alumnos-felices.jpg" alt="Preparatoria" class="level-bg" loading="lazy">
+                    <div class="level-content">
+                        <span class="panel-num">04</span>
+                        <h3 class="level-title">Preparatoria</h3>
+                        <div class="level-desc">Diseño de futuro, certificación dual y proyección universitaria.</div>
+                        <span class="level-link">Ver nivel →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 5. MODELO VIDA  -->
+        <section class="vida-showcase reveal">
+            <!-- Formas de fondo -->
+            <div class="vida-blob blob-1"></div>
+            <div class="vida-blob blob-2"></div>
+            
+            <div class="vida-container">
+                <div style="margin-bottom: 40px;">
+                    <h2 style="font-size:3rem; font-weight:800; color:white; margin-bottom:16px;">Modelo Educativo VIDA</h2>
+                    <p style="font-size:1.2rem; color:rgba(255,255,255,0.9); font-weight:300;">Es la guía de lo que se vive en aulas, proyectos y nuestra comunidad.</p>
+                </div>
+
+                <div class="vida-grid-new">
+                    <!-- Card V -->
+                    <div class="vida-card-new">
+                        <span class="vc-letter">V</span>
+                        <h3 class="vc-title">Vincula</h3>
+                        <p class="vc-desc">Comunidad y lazos fuertes.</p>
+                    </div>
+                    <!-- Card I -->
+                    <div class="vida-card-new">
+                        <span class="vc-letter">I</span>
+                        <h3 class="vc-title">Indaga</h3>
+                        <p class="vc-desc">Preguntas que despiertan.</p>
+                    </div>
+                    <!-- Card D -->
+                    <div class="vida-card-new">
+                        <span class="vc-letter">D</span>
+                        <h3 class="vc-title">Descubre</h3>
+                        <p class="vc-desc">Aprender haciendo.</p>
+                    </div>
+                    <!-- Card A -->
+                    <div class="vida-card-new">
+                        <span class="vc-letter">A</span>
+                        <h3 class="vc-title">Aporta</h3>
+                        <p class="vc-desc">Acción con sentido.</p>
+                    </div>
+                </div>
+
+                <a href="modelo-educativo/modelo-vida/" class="btn-epic btn-epic-outline" style="margin-top:20px; display:inline-block; padding:16px 36px; border-radius:100px; border:1px solid rgba(255,255,255,0.4); color:white; font-weight:700;">Conocer Modelo</a>
+            </div>
+        </section>
+
+ <!-- 6. Descubre el Colegio Bilbao -->
+        <section class="carousel-section reveal">
+            <div class="container" style="text-align:center; margin-bottom:3rem; max-width: 1400px; margin-left: auto; margin-right: auto; padding: 0 20px;">
+                <h2 style="font-size:2.5rem; font-weight:800; color:var(--col-bilbao);">Descubre el Colegio Bilbao</h2>
+<span class="section-tag">Elige el tema que más te interesa para conocer mejor la escuela.</span>
+            </div>
+            
+            <div class="carousel-track-wrapper">
+                <div class="carousel-track">
+                    <!-- Slide 1 -->
+                    <a href="/admisiones/inicio" class="carousel-slide">
+                        <img src="assets/img/admisiones/inicio/llegando-al-bilbao.jpg" alt="Admisiones"> 
+                        <div class="carousel-overlay">
+                            <span class="slide-title">Admisiones</span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                    <!-- Slide 2 -->
+                    <a href="/conocenos/equipo-educativo/" class="carousel-slide">
+                        <img src="assets/img/conocenos/equipo-educativo/relacion-maestro-alumno.jpg" alt="Equipo educativo">
+                        <div class="carousel-overlay">
+                            <span class="slide-title">Equipo educativo</span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                    <!-- Slide 3 -->
+                    <a href="/conocenos/instalaciones/" class="carousel-slide">
+                        <img src="assets/img/conocenos/instalaciones/edificio-preescolar.jpg" alt="Instalaciones">
+                        <div class="carousel-overlay">
+                            <span class="slide-title">Instalaciones</span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                    <!-- Slide 4 -->
+                    <a href="/modelo-educativo/idiomas/" class="carousel-slide">
+                        <img src="assets/img/modelo-educativo/idiomas/kids.jpg" alt="Idiomas">
+                        <div class="carousel-overlay">
+                            <span class="slide-title">Idiomas</span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                    <!-- Slide 5 -->
+                    <a href="/vida-escolar/futuro-universitario-becas/" class="carousel-slide">
+                        <img src="assets/img/niveles-academicos/preparatoria/alumnos-anotando.jpg" alt="Futuro universitario">
+                        <div class="carousel-overlay">
+                            <span class="slide-title">Futuro universitario</span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                     <!-- Slide 6 (Duplicate for loop) -->
+                    <a href="/admisiones/inicio" class="carousel-slide">
+                        <img src="assets/img/admisiones/inicio/llegando-al-bilbao.jpg" alt="Admisiones">
+                         <div class="carousel-overlay">
+                            <span class="slide-title"> Admisiones </span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                    <!-- Slide 7 (Duplicate for loop safety) -->
+                     <a href="/conocenos/equipo-educativo/" class="carousel-slide">
+                        <img src="assets/img/conocenos/equipo-educativo/relacion-maestro-alumno.jpg" alt="Equipo educativo">
+                        <div class="carousel-overlay">
+                            <span class="slide-title">Equipo educativo</span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                     <!-- Slide 8 (Duplicate for loop safety) -->
+                     <a href="/modelo-educativo/idiomas/" class="carousel-slide">
+                        <img src="assets/img/modelo-educativo/idiomas/kids.jpg" alt="Idiomas">
+                        <div class="carousel-overlay">
+                            <span class="slide-title">Instalaciones</span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                     <!-- Slide 9 (Duplicate for loop safety) -->
+                    <a href="/modelo-educativo/ciencias/" class="carousel-slide">
+                        <img src="assets/img/modelo-educativo/aprendizaje-integral/ciencia-bg.jpg" alt="Idiomas">
+                        <div class="carousel-overlay">
+                            <span class="slide-title"> Idiomas </span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                    <!-- Slide 10 (Duplicate for loop safety) -->
+                    <a href="/vida-escolar/futuro-universitario-becas/" class="carousel-slide">
+                        <img src="assets/img/niveles-academicos/preparatoria/alumnos-anotando.jpg" alt="Futuro universitario">
+                        <div class="carousel-overlay">
+                            <span class="slide-title">Futuro universitario</span>
+                            <span class="slide-cta">Ver Más →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. COMENTARIOS -->
+        <section class="voices-section">
+            <div class="voices-header">
+                <h2 class="voices-title">Voces Bilbao</h2>
+                <span class="section-tag">Lo que dicen las familias del Colegio Bilbao.</span>
+            </div>
+
+            <!-- Carrusel Infinito Optimizado -->
+            <div class="marquee-container" style="width:100%; overflow:hidden;">
+                <div class="marquee-track" style="display:flex; gap:30px; width:max-content; animation:scrollMarquee 45s linear infinite; will-change: transform;">
+                     <!-- Tarjetas simplificadas para reducir DOM -->
+                    <div class="voice-card" style="width:350px; flex-shrink:0; background:white; border-radius:20px; padding:30px; border:1px solid #E0E6ED;">
+                        <p style="font-size:1.1rem; color:var(--col-texto); font-style:italic; margin-bottom:20px;">"El mejor colegio para mis hijos. La calidad humana es incomparable."</p>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div style="width:50px; height:50px; border-radius:50%; background:#ddd;"></div>
+                            <div><strong style="display:block; color:var(--col-bilbao); font-size:0.95rem;">Paulina C.</strong><span style="font-size:0.85rem; color:#999;">Mamá Primaria</span></div>
+                        </div>
+                    </div>
+                     <div class="voice-card" style="width:350px; flex-shrink:0; background:white; border-radius:20px; padding:30px; border:1px solid #E0E6ED;">
+                        <p style="font-size:1.1rem; color:var(--col-texto); font-style:italic; margin-bottom:20px;">“Se sienten vistos, no evaluados todo el tiempo.”</p>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div style="width:50px; height:50px; border-radius:50%; background:#ddd;"></div>
+                            <div><strong style="display:block; color:var(--col-bilbao); font-size:0.95rem;"> Mario T.</strong><span style="font-size:0.85rem; color:#999;"> Papá Secundaria</span></div>
+                        </div>
+                    </div>
+                     <div class="voice-card" style="width:350px; flex-shrink:0; background:white; border-radius:20px; padding:30px; border:1px solid #E0E6ED;">
+                        <p style="font-size:1.1rem; color:var(--col-texto); font-style:italic; margin-bottom:20px;">“Mi hijo volvió a disfrutar aprender.”</p>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div style="width:50px; height:50px; border-radius:50%; background:#ddd;"></div>
+                            <div><strong style="display:block; color:var(--col-bilbao); font-size:0.95rem;">Jorge M.</strong><span style="font-size:0.85rem; color:#999;">Papá Prepa</span></div>
+                        </div>
+                    </div>
+                     <!-- Duplicados para loop visual -->
+                     <div class="voice-card" style="width:350px; flex-shrink:0; background:white; border-radius:20px; padding:30px; border:1px solid #E0E6ED;">
+                        <p style="font-size:1.1rem; color:var(--col-texto); font-style:italic; margin-bottom:20px;">"El mejor colegio para mis hijos. La calidad humana es incomparable."</p>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div style="width:50px; height:50px; border-radius:50%; background:#ddd;"></div>
+                            <div><strong style="display:block; color:var(--col-bilbao); font-size:0.95rem;">Familia Sánchez</strong><span style="font-size:0.85rem; color:#999;">Primaria</span></div>
+                        </div>
+                    </div>
+                     <div class="voice-card" style="width:350px; flex-shrink:0; background:white; border-radius:20px; padding:30px; border:1px solid #E0E6ED;">
+                        <p style="font-size:1.1rem; color:var(--col-texto); font-style:italic; margin-bottom:20px;">"La naturaleza sí se usa. No es fondo para fotos."</p>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div style="width:50px; height:50px; border-radius:50%; background:#ddd;"></div>
+                            <div><strong style="display:block; color:var(--col-bilbao); font-size:0.95rem;">Anna G.</strong><span style="font-size:0.85rem; color:#999;">Mamá Preescolar</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+ <!-- 8. NOTICIAS -->
+        <section class="news-section">
+            <div class="container" style="max-width: 1200px; margin: 0 auto;">
+                <div class="section-header-center reveal">
+                    <h2 style="font-size:2.5rem; color:var(--col-bilbao); margin-top:10px; margin-bottom:1rem;">Momentos Bilbao</h2>
+<span class="section-tag" style="text-transform:uppercase; letter-spacing:2px; font-weight:700; font-size:0.9rem; color:var(--col-espiritu);">Conoce lo que vivimos</span>
+                </div>
+                
+                <div class="news-grid">
+                    <a href="https://www.excelsior.com.mx/nacional/egresados-del-colegio-bilbao-con-acceso-a-mas-de-200-universidades-en-mexico-y-el-mundo" class="news-item featured reveal">
+                        <img src="assets/img/inicio/nota-1.jpeg" alt="Noticia Principal" class="news-img">
+                        <div class="news-overlay">
+                            <span class="news-date">Destacado</span>
+                            <h3 class="news-title-card">EXCELSIOR: Egresados del Colegio Bilbao, con acceso a más de 200 universidades en México y el mundo</h3>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=trRy2F8KFcU" class="news-item reveal" style="transition-delay:0.1s">
+                        <img src="assets/img/inicio/entrevista.png" alt="Noticia 2" class="news-img">
+                        <div class="news-overlay">
+                            <span class="news-date">Destacado</span>
+                            <h3 class="news-title-card">Entrevista: ¿Qué hace diferente a una escuela cuando realmente se convierte en comunidad?</h3>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=gDbAl_3y9Bc" class="news-item reveal" style="transition-delay:0.2s">
+                        <img src="assets/img/inicio/entrevista-2.jpg" alt="Noticia 3" class="news-img">
+                        <div class="news-overlay">
+                            <span class="news-date">Destacado</span>
+                            <h3 class="news-title-card">Entrevista: ¿Qué se siente volver a casa… ahora como maestro?</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 9. ALUMNI -->
+        <section class="alumni-section reveal">
+            <div class="alumni-content">
+                <h3 class="alumni-title">Alumni Bilbao</h3>
+                <p class="alumni-text">Vuelve a conectar, esta sigue siendo tu casa. Queremos reencontrarnos y crear nuevos espacios de conexión. Comunidad de exalumnos.</p>
+                <a href="/comunidad/exalumnos/" class="btn-alumni">Volver a conectar</a>
+            </div>
+        </section>
+
+        <!-- 10. CTA -->
+        <section class="final-cta">
+            <h2 class="cta-big-h2">El futuro de tus hijos<br>comienza aquí.</h2>
+            <a href="https://wa.me/525614612682?text=Hola,%20acabo%20de%20ver%20la%20página%20del%20colegio,%20me%20gustó%20y%20quiero%20conocerlos%20en%20una%20visita%20guiada." class="btn-final">Agenda una visita hoy</a>
+        </section>
+
+    </main>
+
+   <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-header">
+                <a href="/" class="footer-logo-link" aria-label="Ir al inicio de Colegio Bilbao">
+                    <img src="../../assets/img/global/logo-bilbao-horizontal-azul.png" alt="Colegio Bilbao" class="footer-logo-img">
+                </a>
+                <div class="footer-social-desktop">
+                    <span style="margin-right: 8px;">Síguenos</span>
+                    <a href="https://www.facebook.com/bilbaocolegio/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><svg class="social-icon" viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V1.74c-.75-.07-2.47-.24-4.75-.24-4.8 0-8 2.9-8 8v3h-5v4h5v11.5h7V13.5z"/></svg></a>
+                    <a href="https://www.instagram.com/bilbaocolegio/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.23-.15-4.77-1.66-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.36-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.31.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16 0 3.4 2.76 6.16 6.16 6.16 3.4 0 6.16-2.76 6.16-6.16 0-3.4-2.76-6.16-6.16-6.16zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6.4-10.8c0 .66-.54 1.2-1.2 1.2-.66 0-1.2-.54-1.2-1.2 0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2z"/></svg></a>
+                    <a href="https://www.instagram.com/bilbaomoments/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Secundaria"><svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.23-.15-4.77-1.66-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.36-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.31.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16 0 3.4 2.76 6.16 6.16 6.16 3.4 0 6.16-2.76 6.16-6.16 0-3.4-2.76-6.16-6.16-6.16zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6.4-10.8c0 .66-.54 1.2-1.2 1.2-.66 0-1.2-.54-1.2-1.2 0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2z"/></svg></a>
+                    <a href="https://www.youtube.com/@ColegioBilbaoOficial" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><svg class="social-icon" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+                    <a href="https://mx.linkedin.com/company/colegio-bilbao" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><svg class="social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <span style="margin: 0 16px;">|</span>
+                    <div class="lang-switch" style="display: inline-block;"><span class="active">ES</span> | <a href="/en/">EN</a></div>
+                </div>
+            </div>
+            
+            <div class="footer-grid">
+                <div class="footer-identity">
+                    <p class="footer-desc">Escuela privada K-12 en la zona poniente de la Ciudad de México.</p>
+                    <div class="footer-contact">
+                        <p><strong>Dirección:</strong><br>Tlalmimilolpan 39, San Mateo Tlaltenango,<br>Cuajimalpa de Morelos, 05600 Ciudad de México, CDMX</p>
+                        <p style="margin-top:12px"><strong>Teléfonos:</strong></p>
+                        <p>Conmutador: <a href="tel:+5558101346">55 5810 1346</a></p>
+                        <p>Admisiones:<br> <a href="tel:+525549839745">+52 55 4983 9745</a><br><a href="tel:+525614612682">+52 56 1461 2682</a></p>
+                        <p style="margin-top:12px"><a href="/contacto/">Ver ubicación y mapa →</a></p>
+                    </div>
+                    <div class="footer-social-mobile">
+                        <span>Síguenos:</span>
+                        <!-- Mobile Socials Same as Desktop -->
+                        <a href="https://www.facebook.com/bilbaocolegio/" class="social-link"><svg class="social-icon" viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V1.74c-.75-.07-2.47-.24-4.75-.24-4.8 0-8 2.9-8 8v3h-5v4h5v11.5h7V13.5z"/></svg></a>
+                        <a href="https://www.instagram.com/bilbaocolegio/" class="social-link"><svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.23-.15-4.77-1.66-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.36-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.31.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16 0 3.4 2.76 6.16 6.16 6.16 3.4 0 6.16-2.76 6.16-6.16 0-3.4-2.76-6.16-6.16-6.16zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6.4-10.8c0 .66-.54 1.2-1.2 1.2-.66 0-1.2-.54-1.2-1.2 0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2z"/></svg></a>
+                        <a href="https://www.youtube.com/@ColegioBilbaoOficial" class="social-link"><svg class="social-icon" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+                        <a href="https://mx.linkedin.com/company/colegio-bilbao" class="social-link"><svg class="social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <button class="footer-col-title" aria-expanded="false">Conócenos <span class="chevron">▼</span></button>
+                    <ul class="footer-links">
+                        <li><a href="/conocenos/quienes-somos/">Quiénes somos</a></li>
+                        <li><a href="/conocenos/equipo-educativo/">Equipo educativo</a></li>
+                        <li><a href="/conocenos/instalaciones/">Instalaciones</a></li>
+                        <li><a href="/modelo-educativo/modelo-vida/">Modelo VIDA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <button class="footer-col-title" aria-expanded="false">Niveles <span class="chevron">▼</span></button>
+                    <ul class="footer-links">
+                        <li><a href="/niveles-academicos/preescolar/">Preescolar</a></li>
+                        <li><a href="/niveles-academicos/primaria/">Primaria</a></li>
+                        <li><a href="/niveles-academicos/secundaria/">Secundaria</a></li>
+                        <li><a href="/niveles-academicos/preparatoria/">Preparatoria</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <button class="footer-col-title" aria-expanded="false">Comunidad <span class="chevron">▼</span></button>
+                    <ul class="footer-links">
+                        <li><a href="/admisiones/">Admisiones</a></li>
+                        <li><a href="/comunidad/familias/">Familias</a></li>
+                        <li><a href="/voces-bilbao/noticias/">Noticias</a></li>
+                        <li><a href="/contacto/cultura-y-talento/">Bolsa de trabajo</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-legal">
+                <div class="legal-links">
+                    <a href="/aviso-de-privacidad/">Aviso de privacidad</a> · 
+                    <a href="/terminos-y-condiciones/">Términos y condiciones</a> · 
+                    <a href="/mapa-del-sitio/">Mapa del sitio</a>
+                </div>
+                <div>© 2025 Colegio Bilbao. Todos los derechos reservados.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuTrigger = document.querySelector('.menu-trigger');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const body = document.body;
+        const navAccordions = document.querySelectorAll('.nav-accordion-trigger');
+        const footerToggles = document.querySelectorAll('.footer-col-title');
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        function toggleMenu(show) {
+            menuOverlay.setAttribute('aria-hidden', !show);
+            menuTrigger.setAttribute('aria-expanded', show);
+            show ? body.classList.add('no-scroll') : body.classList.remove('no-scroll');
+            (show ? closeMenuBtn : menuTrigger).focus();
+        }
+
+        menuTrigger.addEventListener('click', () => toggleMenu(true));
+        closeMenuBtn.addEventListener('click', () => toggleMenu(false));
+
+        navAccordions.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const submenu = trigger.nextElementSibling;
+                if(submenu) {
+                    const expanded = trigger.getAttribute('aria-expanded') === 'true';
+                    trigger.setAttribute('aria-expanded', !expanded);
+                    submenu.style.display = expanded ? 'none' : 'block';
+                }
+            });
+        });
+
+        footerToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    const content = toggle.nextElementSibling;
+                    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                    toggle.setAttribute('aria-expanded', !expanded);
+                    content.style.display = expanded ? 'none' : 'block';
+                }
+            });
+        });
+
+        // TEXT CAROUSEL ANIMATION (3D CYLINDER ROTATION)
+        const heroPhrases = [
+            "Learning to become yourself",
+            "Tu voz, tu camino",
+            "Think free. Act responsible.",
+            "Naturaleza que despierta tu mente",
+            "Belong. Explore. Build your future.",
+            "Aquí tu voz importa."
+        ];
+        
+        const titleElement = document.getElementById('dynamic-hero-title');
+        let phraseIndex = 0;
+
+        function changePhrase() {
+            // Step 1: Rotate Out (Up)
+            titleElement.style.transition = "all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)";
+            titleElement.style.opacity = "0";
+            titleElement.style.transform = "rotateX(90deg)";
+
+            setTimeout(() => {
+                // Step 2: Swap Text & Reset Position (Instant)
+                phraseIndex = (phraseIndex + 1) % heroPhrases.length;
+                titleElement.textContent = heroPhrases[phraseIndex];
+                
+                titleElement.style.transition = "none";
+                titleElement.style.transform = "rotateX(-90deg)";
+                
+                // Trigger Reflow
+                void titleElement.offsetWidth;
+
+                // Step 3: Rotate In (From Bottom)
+                titleElement.style.transition = "all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)";
+                titleElement.style.opacity = "1";
+                titleElement.style.transform = "rotateX(0deg)";
+            }, 800);
+        }
+
+        // Intervalo simple y limpio
+        setInterval(changePhrase, 7000); 
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        window.addEventListener('resize', () => {
+             if(window.innerWidth >= 1024) {
+                 document.querySelectorAll('.footer-links').forEach(el => el.style.display = 'block');
+                 document.querySelectorAll('.footer-col-title .chevron').forEach(el => el.style.transform = '');
+             } else {
+                 document.querySelectorAll('.footer-links').forEach(el => el.style.display = 'none');
+             }
+        });
+// REVEAL ANIMATION & COUNTER
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            // Función Slot Machine
+            const runCounter = (el) => {
+                const target = +el.getAttribute('data-target');
+                const suffix = el.getAttribute('data-suffix') || '';
+                const plus = el.getAttribute('data-plus') ? '+' : '';
+                const duration = 2000; // 2 segundos
+                const stepTime = 20;
+                const steps = duration / stepTime;
+                const increment = target / steps;
+                
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if(current >= target) {
+                        el.textContent = plus + target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        el.textContent = plus + Math.ceil(current) + suffix;
+                    }
+                }, stepTime);
+            };
+
+            // Observer para Reveals y Contadores
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        
+                        // Si es un item de estadística, iniciar contador
+                        const counter = entry.target.querySelector('h3[data-target]');
+                        if(counter && !counter.classList.contains('counted')) {
+                            runCounter(counter);
+                            counter.classList.add('counted');
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(reveal => observer.observe(reveal));
+        });
+
+    </script>
+
+<style>
+    /* Solo aplica en pantallas menores a 1024px (Móviles y Tablets) */
+    @media (max-width: 1024px) {
+        
+        /* Efecto de Escala (Zoom In) */
+        .photo-card.mobile-active img,
+        .level-card.mobile-active .level-bg,
+        .bento-card.mobile-active .bento-img,
+        .news-item.mobile-active .news-img,
+        .carousel-slide.mobile-active img,
+        .organic-img-wrapper.mobile-active img,
+        .explore-card.mobile-active .explore-bg,
+        .manifesto-img.mobile-active img { 
+            transform: scale(1.1); 
+        }
+        
+        /* Efecto de Brillo/Filtro */
+        .level-card.mobile-active .level-bg { filter: brightness(0.6); }
+
+        /* Efecto de Aparición de Texto/Overlay */
+        .photo-card.mobile-active .card-caption,
+        .level-card.mobile-active .level-desc,
+        .level-card.mobile-active .level-link,
+        .carousel-slide.mobile-active .carousel-overlay { 
+            opacity: 1; transform: translateY(0); 
+            max-height: 200px; /* Para descripciones que se expanden */
+        }
+        
+        /* Ajuste de título rotado en Home */
+        .level-card.mobile-active .level-title { transform: rotate(0deg); } 
+
+        /* Efecto de Elevación (Y-axis) */
+        .bento-card.mobile-active,
+        .news-item.mobile-active,
+        .social-explore-card.mobile-active,
+        .comp-card.mobile-active,
+        .step-item.mobile-active,
+        .explore-card.mobile-active {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+        }
+
+        /* Efecto Específico Mascotas (Rotación divertida) */
+        .mascot-img.mobile-active, 
+        .mascot-intro.mobile-active,
+        .mascot-happy.mobile-active,
+        .mascot-cta.mobile-active { 
+            transform: scale(1.1) rotate(5deg); 
+        }
+
+        /* Bordes activos */
+        .social-explore-card.mobile-active,
+        .step-item.mobile-active { 
+            border-color: var(--col-espiritu); 
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Solo ejecutar lógica en móviles/tablets
+        if (window.innerWidth <= 1024) {
+            
+            // LISTA MAESTRA DE CLASES A ANIMAR
+            // Aquí están incluidas las clases del Home, Admisiones y Niveles
+            const selectors = [
+                '.photo-card', '.level-card', '.bento-card', '.news-item', 
+                '.carousel-slide', '.mascot-img', '.mascot-intro', '.mascot-happy', '.mascot-cta',
+                '.organic-img-wrapper', '.social-explore-card', '.comp-card', 
+                '.step-item', '.explore-card', '.manifesto-img'
+            ];
+
+            const hoverElements = document.querySelectorAll(selectors.join(', '));
+
+            const observerOptions = {
+                root: null,
+                // El margen negativo hace que el efecto se active justo en el centro de la pantalla
+                // y se desactive si el elemento sale mucho.
+                rootMargin: '-15% 0px -15% 0px', 
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('mobile-active');
+                    } else {
+                        // Quitar el comentario de abajo si quieres que el efecto se repita cada vez que haces scroll
+                        // entry.target.classList.remove('mobile-active');
+                    }
+                });
+            }, observerOptions);
+
+            hoverElements.forEach(el => observer.observe(el));
+        }
+    });
+</script>                 entry.target.classList.remove('mobile-active');
+                    }
+                });
+            }, observerOptions);
+
+            hoverElements.forEach(el => observer.observe(el));
+        }
+    });
+</script>
+
+</body>
+</html>
