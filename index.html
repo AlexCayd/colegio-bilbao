@@ -118,7 +118,7 @@
         /* 1. HERO  */
         .hero-flagship {
             position: relative;
-            height: 100vh;
+            height: 120vh;
             width: 100%;
             overflow: hidden;
             display: flex;
@@ -132,11 +132,12 @@
             object-fit: cover;
             opacity: 0.9;
             will-change: opacity;
+            z-index: 10;
         }
         
         .hero-fallback {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('assets/img/home/hero-home.jpg'); 
+            background-image: url('assets/img/home/poster.jpg'); 
             background-size: cover; background-position: center;
             z-index: 0;
         }
@@ -173,13 +174,16 @@
             font-size: clamp(3.5rem, 9vw, 6.5rem);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 32px;
             letter-spacing: -2px;
             min-height: 1.2em;
             text-shadow: 0 10px 40px rgba(0,0,0,0.4);
             transform-style: preserve-3d;
             transform-origin: center center -40px;
             animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s backwards;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero-cta-wrapper {
@@ -685,7 +689,7 @@
         <section class="hero-flagship">
             <!-- Video Container -->
             <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata" poster="assets/img/home/poster.jpg" decoding="async">
-                <source src="assets/img/home/hero-video.mp4" type="video/mp4">
+                <source src="assets/vid/home/hero-home.mp4" type="video/mp4">
             </video>
             <!-- Fallback Image -->
             <div class="hero-fallback hero-video-bg"></div>
@@ -909,7 +913,7 @@
                     </a>
                      <!-- Slide 9 (Duplicate for loop safety) -->
                     <a href="/modelo-educativo/ciencias/" class="carousel-slide">
-                        <img src="assets/img/modelo-educativo/aprendizaje-integral/ciencia-bg.jpg" alt="Idiomas">
+                        <img src="assets/img/modelo-educativo/aprendizaje-integral/ciencia.jpg" alt="Idiomas">
                         <div class="carousel-overlay">
                             <span class="slide-title"> Idiomas </span>
                             <span class="slide-cta">Ver Más →</span>
@@ -1314,52 +1318,39 @@
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Solo ejecutar lógica en móviles/tablets
-        if (window.innerWidth <= 1024) {
-            
-            // LISTA MAESTRA DE CLASES A ANIMAR
-            // Aquí están incluidas las clases del Home, Admisiones y Niveles
-            const selectors = [
-                '.photo-card', '.level-card', '.bento-card', '.news-item', 
-                '.carousel-slide', '.mascot-img', '.mascot-intro', '.mascot-happy', '.mascot-cta',
-                '.organic-img-wrapper', '.social-explore-card', '.comp-card', 
-                '.step-item', '.explore-card', '.manifesto-img'
-            ];
+  document.addEventListener("DOMContentLoaded", () => {
+    // Solo ejecutar lógica en móviles/tablets
+    if (window.innerWidth <= 1024) {
+      // LISTA MAESTRA DE CLASES A ANIMAR
+      const selectors = [
+        ".photo-card", ".level-card", ".bento-card", ".news-item",
+        ".carousel-slide", ".mascot-img", ".mascot-intro", ".mascot-happy", ".mascot-cta",
+        ".organic-img-wrapper", ".social-explore-card", ".comp-card",
+        ".step-item", ".explore-card", ".manifesto-img",
+      ];
 
-            const hoverElements = document.querySelectorAll(selectors.join(', '));
+      const hoverElements = document.querySelectorAll(selectors.join(", "));
 
-            const observerOptions = {
-                root: null,
-                // El margen negativo hace que el efecto se active justo en el centro de la pantalla
-                // y se desactive si el elemento sale mucho.
-                rootMargin: '-15% 0px -15% 0px', 
-                threshold: 0.2
-            };
+      const observerOptions = {
+        root: null,
+        rootMargin: "-15% 0px -15% 0px",
+        threshold: 0.2,
+      };
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('mobile-active');
-                    } else {
-                        // Quitar el comentario de abajo si quieres que el efecto se repita cada vez que haces scroll
-                        // entry.target.classList.remove('mobile-active');
-                    }
-                });
-            }, observerOptions);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("mobile-active");
+          } else {
+            // Si quieres que se repita al hacer scroll, descomenta:
+            // entry.target.classList.remove("mobile-active");
+          }
+        });
+      }, observerOptions);
 
-            hoverElements.forEach(el => observer.observe(el));
-        }
-    });
-</script>                 entry.target.classList.remove('mobile-active');
-                    }
-                });
-            }, observerOptions);
-
-            hoverElements.forEach(el => observer.observe(el));
-        }
-    });
+      hoverElements.forEach((el) => observer.observe(el));
+    }
+  });
 </script>
-
 </body>
 </html>
