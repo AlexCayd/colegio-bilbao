@@ -246,7 +246,7 @@
 /* 3. STATS  */
         .stats-banner {
             background-color: transparent;
-            padding: 0;
+            padding: 15px;
             position: relative; z-index: 10;
             margin-top: -80px; /* Overlap hero */
             box-shadow: none;
@@ -259,7 +259,7 @@
             grid-template-columns: repeat(4, 1fr); /* 4 Columns */
             background: white;
             border-radius: var(--radius-card);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 20px rgba(0,0,0,0.15);
             overflow: hidden;
             pointer-events: auto;
             max-width: 1200px;
@@ -287,7 +287,7 @@
         }
 
         .stat-item h3 { 
-            font-size: 3.5rem; 
+            font-size: 2.4rem; 
             font-weight: 900; 
             color: var(--col-bilbao); 
             margin-bottom: 0.5rem; 
@@ -642,6 +642,26 @@
             .footer-social-mobile { display: none; }
             .footer-legal { flex-direction: row; justify-content: space-between; text-align: left; }
         }
+
+        /* Base: ambos cubren el hero */
+        .hero-video-bg,
+        .hero-poster {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        /* Por defecto: desktop = video, móvil = poster */
+        .hero-poster { display: none; }
+        .hero-video-bg { display: block; }
+
+        /* Móvil/Tablet: mostrar poster y ocultar video */
+        @media (max-width: 1024px) {
+        .hero-poster { display: block; z-index: 0; }
+        .hero-video-bg { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -687,26 +707,39 @@
         
         <!-- 1. HERO -->
         <section class="hero-flagship">
-            <!-- Video Container -->
-            <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata" poster="assets/img/home/poster.jpg" decoding="async">
-                <source src="assets/vid/home/hero-home.mp4" type="video/mp4">
+            <!-- Poster SOLO móvil -->
+            <img
+                class="hero-poster"
+                src="assets/img/home/poster.jpg"
+                alt=""
+                loading="eager"
+                decoding="async"
+            />
+
+            <!-- Video SOLO desktop -->
+            <video
+                class="hero-video-bg"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="assets/img/home/poster.jpg"
+            >
+                <source src="assets/vid/home/hero-home.mp4" type="video/mp4" />
             </video>
-            <!-- Fallback Image -->
-            <div class="hero-fallback hero-video-bg"></div>
 
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
                 <span class="hero-subtitle-tag">Este es tu lugar: <strong>Colegio Bilbao</strong></span>
-                
-                <!-- Frase Cambiante (Efecto 3D Cilindro) -->
                 <h1 class="hero-title" id="dynamic-hero-title">Learning to become yourself</h1>
-                
                 <div class="hero-cta-wrapper">
-                    <a href="https://wa.me/525614612682?text=Hola,%20acabo%20de%20ver%20la%20página%20del%20colegio,%20me%20gustó%20y%20quiero%20conocerlos%20en%20una%20visita%20guiada." class="btn-epic btn-epic-primary">Agenda tu visita</a>
+                <a href="https://wa.me/525614612682?text=Hola,%20acabo%20de%20ver%20la%20página%20del%20colegio,%20me%20gustó%20y%20quiero%20conocerlos%20en%20una%20visita%20guiada."
+                    class="btn-epic btn-epic-primary">Agenda tu visita</a>
                 </div>
             </div>
-        </section>
+        </section>        
 
         <!-- 2. BIENVENIDA -->
         <section class="welcome-section reveal">
