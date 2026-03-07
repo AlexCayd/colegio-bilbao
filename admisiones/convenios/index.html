@@ -25,195 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- 1. VARIABLES & RESET (Idéntico a index.html) --- */
-        :root {
-            --bg-global: #F9FBFE;
-            --col-bilbao: #4D8ABB;
-            --col-espiritu: #7DC6E5;
-            --col-herencia: #374C69;
-            --col-texto: #374C69;
-            --col-blanco: #FFFFFF;
-            --col-borde: #E0E6ED;
-            --sp-xs: 8px;
-            --sp-sm: 16px;
-            --sp-md: 24px;
-            --sp-lg: 32px;
-            --sp-xl: 48px;
-            --sp-xxl: 64px;
-            --font-main: 'Montserrat', sans-serif;
-            --max-width: 1280px;
-            --header-height: 90px;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-global);
-            color: var(--col-texto);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
-        ul { list-style: none; }
-        button { font-family: inherit; border: none; background: none; cursor: pointer; }
-
-        /* --- HEADER & MENU STYLES --- */
-        .header-bar {
-            position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
-            background-color: rgba(249, 251, 254, 0.95); backdrop-filter: blur(10px);
-            z-index: 1000; border-bottom: 1px solid rgba(77, 138, 187, 0.1);
-            display: flex; align-items: center; justify-content: center; padding: 0 var(--sp-md);
-        }
-        .header-inner { width: 100%; max-width: var(--max-width); display: flex; justify-content: space-between; align-items: center; }
-        .logo-link { display: flex; align-items: center; z-index: 1002; height: 100%; }
-        .logo-img { height: 67px; width: auto; object-fit: contain; }
-        .header-controls { display: flex; align-items: center; gap: var(--sp-md); z-index: 1002; }
-        .lang-switch { font-size: 0.9rem; font-weight: 600; color: var(--col-herencia); }
-        .lang-switch span.active { color: var(--col-bilbao); text-decoration: underline; text-underline-offset: 4px; }
-        .menu-trigger { display: flex; align-items: center; justify-content: center; padding: 8px; color: var(--col-bilbao); }
-        .hamburger-icon { width: 28px; height: 20px; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
-        .hamburger-icon span { display: block; width: 100%; height: 2px; background-color: var(--col-bilbao); border-radius: 2px; transition: all 0.3s ease; }
-
-        /* Overlay Menu Styles */
-        .menu-overlay {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background-color: var(--bg-global); z-index: 2000;
-            display: flex; flex-direction: column; opacity: 0; visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease; overflow-y: auto;
-        }
-        .menu-overlay[aria-hidden="false"] { opacity: 1; visibility: visible; }
-        .overlay-header { flex-shrink: 0; height: var(--header-height); display: flex; align-items: center; justify-content: center; padding: 0 var(--sp-md); border-bottom: 1px solid rgba(77, 138, 187, 0.1); }
-        .close-btn { width: 44px; height: 44px; position: relative; color: var(--col-bilbao); }
-        .close-btn::before, .close-btn::after { content: ''; position: absolute; top: 50%; left: 50%; width: 24px; height: 2px; background-color: currentColor; }
-        .close-btn::before { transform: translate(-50%, -50%) rotate(45deg); }
-        .close-btn::after { transform: translate(-50%, -50%) rotate(-45deg); }
-        .overlay-content { flex-grow: 1; width: 100%; max-width: 800px; margin: 0 auto; padding: var(--sp-lg) var(--sp-md); }
-        .nav-accordion-item { border-bottom: 1px solid var(--col-borde); }
-        .nav-accordion-trigger { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: var(--sp-md) 0; font-size: 1.5rem; font-weight: 700; color: var(--col-herencia); text-align: left; transition: color 0.2s; }
-        .nav-accordion-trigger:hover, .nav-accordion-trigger[aria-expanded="true"] { color: var(--col-bilbao); }
-        .nav-accordion-trigger .chevron { transition: transform 0.3s ease; font-size: 1rem; }
-        .nav-accordion-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
-        .nav-submenu { display: none; padding-bottom: var(--sp-md); padding-left: var(--sp-md); border-left: 2px solid var(--col-espiritu); margin-left: 4px; }
-        .nav-submenu li { margin-bottom: var(--sp-sm); }
-        .nav-submenu a { font-size: 1.1rem; color: var(--col-texto); font-weight: 500; }
-        .nav-submenu a:hover { color: var(--col-bilbao); }
-        .no-scroll { overflow: hidden; }
-
-        /* --- FOOTER STYLES --- */
-        footer { background-color: var(--bg-global); border-top: 1px solid var(--col-borde); padding-top: var(--sp-xl); font-size: 0.95rem; color: var(--col-herencia); margin-top: auto; }
-        .footer-container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--sp-md); }
-        
-        /* Footer Header (Logo + Socials) */
-        .footer-header { display: flex; flex-direction: column; margin-bottom: var(--sp-lg); align-items: flex-start; }
-        .footer-logo-link { display: inline-block; margin-bottom: var(--sp-sm); }
-        .footer-logo-img { height: 77px; width: auto; object-fit: contain; display: block; }
-        
-        .footer-social-desktop { display: none; }
-        .social-link { display: inline-flex; align-items: center; justify-content: center; color: var(--col-herencia); transition: color 0.2s ease, transform 0.2s ease; width: 36px; height: 36px; }
-        .social-link:hover { color: var(--col-bilbao); transform: translateY(-2px); }
-        .social-icon { width: 20px; height: 20px; fill: currentColor; }
-
-        .footer-grid { display: grid; gap: var(--sp-lg); grid-template-columns: 1fr; }
-        .footer-desc { margin-bottom: var(--sp-md); font-size: 0.9rem; line-height: 1.6; }
-        .footer-contact p { margin-bottom: var(--sp-xs); }
-        .footer-contact a { font-weight: 600; color: var(--col-bilbao); }
-        .footer-social-mobile { margin-top: var(--sp-md); margin-bottom: var(--sp-lg); display: flex; gap: var(--sp-xs); align-items: center; flex-wrap: wrap; }
-        
-        .footer-col-title { font-weight: 700; color: var(--col-bilbao); margin-bottom: var(--sp-sm); display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .footer-links { display: none; margin-bottom: var(--sp-md); }
-        .footer-links li { margin-bottom: var(--sp-xs); }
-        .footer-links a:hover { color: var(--col-espiritu); text-decoration: underline; }
-        
-        .footer-legal { margin-top: var(--sp-xl); padding: var(--sp-md) 0; border-top: 1px solid var(--col-borde); font-size: 0.8rem; display: flex; flex-direction: column; gap: var(--sp-sm); text-align: center; opacity: 0.8; }
-        .legal-links { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-sm); }
-
-        /* Utilidades */
-        .visible { display: block !important; }
-        .rotate { transform: rotate(180deg); }
-
-        /* --- CONTENIDO ESPECÍFICO: EN CONSTRUCCIÓN --- */
-        main {
-            flex-grow: 1; 
-            padding-top: var(--header-height);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-bottom: var(--sp-xxl);
-            min-height: 60vh;
-        }
-
-        .construction-container {
-            text-align: center;
-            max-width: 800px; 
-            padding: var(--sp-md);
-        }
-
-        /* Estilos para la imagen de construcción */
-        .construction-image {
-            max-width: 100%;
-            height: auto;
-            max-height: 400px; 
-            border-radius: 16px; 
-            box-shadow: 0 12px 24px rgba(77, 138, 187, 0.15); 
-            margin-bottom: var(--sp-lg);
-            object-fit: cover;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: var(--col-bilbao);
-            margin-bottom: var(--sp-md);
-            letter-spacing: -1px;
-        }
-
-        p.lead {
-            font-size: 1.1rem;
-            color: var(--col-herencia);
-            margin-bottom: var(--sp-lg);
-            line-height: 1.6;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--col-bilbao);
-            color: var(--col-blanco);
-            padding: 14px 32px;
-            border-radius: 50px; 
-            font-weight: 600;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 12px rgba(77, 138, 187, 0.2);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--col-herencia);
-            transform: translateY(-2px);
-        }
-
-        /* --- BREAKPOINTS --- */
-        @media (min-width: 600px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .footer-identity { grid-column: span 2; }
-        }
-        @media (min-width: 1024px) {
-            /* Header Footer Layout */
-            .footer-header { flex-direction: row; justify-content: space-between; align-items: center; }
-            .footer-social-desktop { display: flex; align-items: center; gap: var(--sp-xs); }
-            .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; }
-            .footer-identity { grid-column: auto; }
-            .footer-links { display: block !important; }
-            .footer-col-title { pointer-events: none; cursor: default; }
-            .footer-col-title .chevron { display: none; }
-            .footer-social-mobile { display: none; }
-            .footer-legal { flex-direction: row; justify-content: space-between; text-align: left; }
-        }
-    </style>
+    <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
 
@@ -357,7 +169,7 @@
     </div>
 
     <!-- MAIN CONTENT: CONSTRUCCIÓN -->
-    <main id="main-content">
+    <main class="main-construction" id="main-content">
         <div class="construction-container">
             <!-- RUTA DE IMAGEN ACTUALIZADA -->
             <!-- Asegúrate de que el archivo esté en assets/img/global/ -->
@@ -366,7 +178,7 @@
                  class="construction-image"
                  width="600" height="400">
             
-            <h1>Próximamente</h1>
+            <h1 class="construction-title">Próximamente</h1>
             <p class="lead">Estamos construyendo algo extraordinario. Esta sección estará disponible muy pronto con toda la información que buscas.</p>
             
             <a href="/" class="btn-primary">Volver al Inicio</a>
@@ -515,90 +327,6 @@
         </div>
     </footer>
 
-    <script>
-        // --- 1. HEADER MENU LOGIC (Completo) ---
-        const menuTrigger = document.querySelector('.menu-trigger');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const menuOverlay = document.getElementById('menu-overlay');
-        const body = document.body;
-        const navAccordions = document.querySelectorAll('.nav-accordion-trigger');
-
-        // Abrir Menú
-        function openMenu() {
-            menuOverlay.setAttribute('aria-hidden', 'false');
-            menuTrigger.setAttribute('aria-expanded', 'true');
-            body.classList.add('no-scroll');
-            closeMenuBtn.focus(); // Focus trap start
-        }
-
-        // Cerrar Menú
-        function closeMenu() {
-            menuOverlay.setAttribute('aria-hidden', 'true');
-            menuTrigger.setAttribute('aria-expanded', 'false');
-            body.classList.remove('no-scroll');
-            menuTrigger.focus(); // Restore focus
-        }
-
-        menuTrigger.addEventListener('click', openMenu);
-        closeMenuBtn.addEventListener('click', closeMenu);
-
-        // Escape Key Close
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && menuOverlay.getAttribute('aria-hidden') === 'false') {
-                closeMenu();
-            }
-        });
-
-        // Acordeones del Menú Principal
-        navAccordions.forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                // Verificar si hay submenu (si es null, es un enlace directo como Contacto)
-                const submenu = trigger.nextElementSibling;
-                if (!submenu) return; 
-
-                const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-                
-                trigger.setAttribute('aria-expanded', !isExpanded);
-                
-                if (!isExpanded) {
-                    submenu.style.display = 'block';
-                } else {
-                    submenu.style.display = 'none';
-                }
-            });
-        });
-
-        // --- 2. FOOTER ACCORDION LOGIC (Mobile Only) ---
-        const footerToggles = document.querySelectorAll('.footer-col-title');
-
-        footerToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                // Verificar si estamos en mobile (check visual style o width)
-                if (window.innerWidth >= 1024) return; // No hacer nada en desktop
-
-                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-                const content = toggle.nextElementSibling;
-                const chevron = toggle.querySelector('.chevron');
-
-                toggle.setAttribute('aria-expanded', !isExpanded);
-                
-                if (!isExpanded) {
-                    content.classList.add('visible');
-                    chevron.style.transform = 'rotate(180deg)';
-                } else {
-                    content.classList.remove('visible');
-                    chevron.style.transform = 'rotate(0deg)';
-                }
-            });
-        });
-
-        // Asegurar que al redimensionar a desktop, se vean los links
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 1024) {
-                document.querySelectorAll('.footer-links').forEach(el => el.classList.remove('visible'));
-                document.querySelectorAll('.footer-col-title .chevron').forEach(el => el.style.transform = '');
-            }
-        });
-    </script>
+    <script src="../../app.js"></script>
 </body>
 </html>
