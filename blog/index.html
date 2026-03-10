@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artículo | Voces Bilbao</title>
+    <title>Voces Bilbao | Artículos, noticias e historias del Colegio Bilbao</title>
+    <meta name="description" content="Explora Voces Bilbao: artículos, noticias, entrevistas y testimonios sobre la vida escolar, el modelo educativo y la comunidad del Colegio Bilbao.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- FAVICON -->
     <link rel="shortcut icon" href="/assets/img/global/favicon.png" type="image/png">
     <link rel="icon" href="/assets/img/global/favicon.png" type="image/png">
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
-    <!-- HEADER -->
     <header class="header-bar">
         <div class="header-inner">
             <a href="/" class="logo-link">
@@ -31,105 +30,295 @@
         </div>
     </header>
 
-    <main>
+    <!-- OVERLAY MENU -->
+    <div id="menu-overlay" class="menu-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Menú principal">
+        <div class="overlay-header">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="/assets/img/global/logo-bilbao-horizontal-azul.png" alt="Colegio Bilbao" class="logo-img"></a>
+                <div class="header-controls">
+                    <div class="lang-switch"><span class="active">ES</span> | <a href="/en/">EN</a></div>
+                    <button id="close-menu-btn" class="close-btn" aria-label="Cerrar menú"></button>
+                </div>
+            </div>
+        </div>
+        <nav class="overlay-content">
+            <ul id="primary-nav">
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Conócenos <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/conocenos/quienes-somos/">Quiénes somos</a></li><li><a href="/conocenos/equipo-educativo/">Equipo educativo</a></li><li><a href="/conocenos/instalaciones/">Instalaciones</a></li><li><a href="/conocenos/certificaciones-y-reconocimientos/">Certificaciones y reconocimientos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Modelo educativo <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/modelo-educativo/modelo-vida/">Modelo VIDA</a></li><li><a href="/modelo-educativo/filosofia-y-metodologia/">Filosofía</a></li><li><a href="/modelo-educativo/aprendizaje-integral/">Aprendizaje integral</a></li><li><a href="/modelo-educativo/idiomas/">Idiomas</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Niveles académicos <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/niveles-academicos/preescolar/">Preescolar</a></li><li><a href="/niveles-academicos/primaria/">Primaria</a></li><li><a href="/niveles-academicos/secundaria/">Secundaria</a></li><li><a href="/niveles-academicos/preparatoria/">Preparatoria</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Vida escolar <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/vida-escolar/afterschool-extracurriculares/">Afterschool</a></li><li><a href="/vida-escolar/futuro-universitario-becas/">Futuro universitario</a></li><li><a href="/vida-escolar/programa-dual/">Programa Dual</a></li><li><a href="/vida-escolar/servicios-para-familias/">Servicios</a></li><li><a href="/vida-escolar/cuidado-y-bienestar/">Cuidado y bienestar</a></li><li><a href="/vida-escolar/eventos-y-tradiciones/">Eventos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Admisiones <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/admisiones/">Inicio</a></li><li><a href="/admisiones/proceso/">Proceso</a></li><li><a href="/admisiones/preguntas-frecuentes/">FAQ</a></li><li><a href="/admisiones/convenios/">Convenios</a></li><li><a href="/admisiones/convocatoria-becas/">Becas</a></li><li><a href="/admisiones/contacto/">Contacto</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Comunidad <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/comunidad/estudiantes/">Estudiantes</a></li><li><a href="/comunidad/familias/">Familias</a></li><li><a href="/comunidad/exalumnos/">Exalumnos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Voces Bilbao <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/voces-bilbao/noticias/">Noticias</a></li><li><a href="/voces-bilbao/entrevistas/">Entrevistas</a></li><li><a href="/voces-bilbao/articulos/">Artículos</a></li><li><a href="/voces-bilbao/testimonios/">Testimonios</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Contacto <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/contacto/">Contacto</a></li><li><a href="/contacto/directorio/">Directorio</a></li><li><a href="/contacto/cultura-y-talento/">Cultura y talento</a></li><li><a href="/contacto/proveedores/">Proveedores</a></li></ul></li>
+            </ul>
+        </nav>
+    </div>
 
-        <!-- PORTADA CON PARALLAX -->
-        <section class="article-hero">
-            <!-- Sustituir src por la imagen real del artículo -->
-            <img
-                id="parallax-img"
-                class="hero-img-parallax"
-                src="/assets/img/blog/articulo-bosque.png"
-                alt="Portada del artículo"
-                loading="eager"
-            >
-            <div class="hero-gradient"></div>
+    <main class="blog-home">
 
-            <div class="hero-meta">
-                <span class="article-category">Vida escolar</span>
-                <h1 class="article-title">
-                    Cuando el bosque se convierte en aula: aprendizaje que sí deja huella
+        <section class="blog-home-hero">
+            <div class="container fade-up">
+                <span class="blog-eyebrow">Voces Bilbao</span>
+                <h1 class="blog-home-title">
+                    Historias, ideas y experiencias que dan voz a la vida escolar.
                 </h1>
-                <div class="article-byline">
-                    <div class="author-avatar-small">AO</div>
-                    <div class="byline-text">
-                        Por <strong>Alexander Oliva</strong>
-                        <span class="byline-dot"> · </span>
-                        6 de marzo de 2026
-                        <span class="byline-dot"> · </span>
-                        5 min de lectura
+                <p class="blog-home-lead">
+                    Un espacio para compartir artículos, noticias, entrevistas y reflexiones sobre el aprendizaje, la comunidad y la forma en que en Bilbao educamos con intención, sensibilidad y contexto real.
+                </p>
+                <div class="blog-home-actions">
+                    <a href="#todos-los-articulos" class="btn-blog-primary">Ver artículos</a>
+                    <a href="/contacto/" class="btn-blog-secondary">Conocer el colegio</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-featured">
+            <div class="container">
+                <div class="blog-section-head fade-up">
+                    <div>
+                        <h2 class="blog-section-title">Artículos destacados</h2>
+                    </div>
+                    <p class="blog-section-copy">
+                        Una selección editorial para conocer de cerca cómo se vive el aprendizaje dentro y fuera del aula.
+                    </p>
+                </div>
+
+                <div class="featured-grid">
+                    <a href="articulos/aprendizaje-en-el-bosque.html" class="featured-main-card fade-up">
+                        <img src="/assets/img/blog/articulo-bosque.png" alt="Aprendizaje en el bosque">
+                        <div class="featured-main-overlay">
+                            <div class="featured-main-content">
+                                <span class="post-kicker">Categoría 1</span>
+                                <h3 class="featured-main-title">
+                                    Cuando el bosque se convierte en aula: aprendizaje que sí deja huella
+                                </h3>
+                                <p class="featured-main-excerpt">
+                                    En Bilbao, el bosque no es escenario: es método, contexto y punto de partida para aprender con preguntas reales.
+                                </p>
+                                <div class="post-meta">
+                                    <span>Por Alexander Oliva</span>
+                                    <span>·</span>
+                                    <span>6 de marzo de 2026</span>
+                                    <span>·</span>
+                                    <span>5 min de lectura</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="featured-side">
+                        <a href="/blog/articulos/template.html" class="mini-post-card fade-up">
+                            <img src="/assets/img/blog/blog-placeholder.png" alt="Título de artículo">
+                            <div class="mini-post-body">
+                                <span class="article-category article-category-home">Categoría 1</span>
+                                <h3 class="mini-post-title">Título de artículo</h3>
+                                <p class="mini-post-excerpt">
+                                    Descripción breve de este artículo de ejemplo. Aquí irá el resumen del contenido principal cuando esté listo.
+                                </p>
+                            </div>
+                        </a>
+
+                        <a href="/blog/articulos/template.html" class="mini-post-card fade-up">
+                            <img src="/assets/img/blog/blog-placeholder.png" alt="Título de artículo">
+                            <div class="mini-post-body">
+                                <span class="article-category">Categoría 2</span>
+                                <h3 class="mini-post-title">Título de artículo</h3>
+                                <p class="mini-post-excerpt">
+                                    Descripción breve de este artículo de ejemplo. Aquí irá el resumen del contenido principal cuando esté listo.
+                                </p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- BREADCRUMB -->
-        <nav class="breadcrumb" aria-label="Ruta de navegación">
-            <a href="/">Inicio</a>
-            <span>›</span>
-            <a href="/voces-bilbao/articulos/">Artículos</a>
-            <span>›</span>
-            <span style="color: var(--col-herencia);">Aprendizaje en el bosque</span>
-        </nav>
+        <section class="blog-posts" id="todos-los-articulos">
+            <div class="container">
+                <div class="blog-section-head fade-up">
+                    <div>
+                        <h2 class="blog-section-title">Todos los artículos</h2>
+                    </div>
+                    <p class="blog-section-copy">
+                        Explora todos los contenidos editoriales y filtra por categoría para encontrar lo que quieres leer.
+                    </p>
+                </div>
 
-        <!-- CUERPO DEL ARTÍCULO -->
-        <article class="article-body-wrapper">
-            <div class="article-body">
-                <p class="fade-up">
-                    En el Colegio Bilbao, los 30,000 m² de bosque no son un telón de fondo para la fotografía institucional. Son el lugar donde sucede buena parte de la educación que más importa.
-                </p>
+                <div class="category-filters fade-up" id="categoryFilters">
+                    <button class="filter-btn active" type="button" data-filter="all">Todos</button>
+                    <button class="filter-btn" type="button" data-filter="categoria-1">Categoría 1</button>
+                    <button class="filter-btn" type="button" data-filter="categoria-2">Categoría 2</button>
+                    <button class="filter-btn" type="button" data-filter="categoria-3">Categoría 3</button>
+                </div>
 
-                <p class="fade-up">
-                    Hay una escena que se repite varias veces al año en Bilbao: un grupo de alumnos de primaria sale al bosque con libretas y lupas. No van a "pasear". Van a observar, a registrar, a preguntarse. El maestro camina con ellos, no delante. La lección no empieza con una diapositiva; empieza con una pregunta que alguien hace en voz alta y que nadie sabe responder todavía.
-                </p>
+                <div class="posts-grid" id="postsGrid">
 
-                <p class="fade-up">
-                    Este modelo —que llamamos aprendizaje situado— parte de una idea sencilla: los niños aprenden mejor cuando lo que estudian tiene contexto real. El bosque es ese contexto. Es un ecosistema vivo que cambia con las estaciones, que tiene reglas propias, que responde a lo que hacemos con él. Aprender ahí no es decorativo. Es metodológico.
-                </p>
+                    <!-- Artículo existente → Categoría 1 -->
+                    <article class="post-card fade-up" data-category="categoria-1">
+                        <a href="/blog/articulos/aprendizaje-en-el-bosque.html">
+                            <img src="/assets/img/blog/articulo-bosque.png" alt="Aprendizaje en el bosque">
+                        </a>
+                        <div class="post-card-body">
+                            <div class="post-card-categories">
+                                <span class="article-category" data-filter-link="categoria-1">Categoría 1</span>
+                            </div>
+                            <h3 class="post-card-title">
+                                <a href="/blog/articulos/aprendizaje-en-el-bosque.html">
+                                    Cuando el bosque se convierte en aula: aprendizaje que sí deja huella
+                                </a>
+                            </h3>
+                            <p class="post-card-excerpt">
+                                Una mirada al aprendizaje situado en Bilbao y a la forma en que la naturaleza se vuelve parte del proceso educativo.
+                            </p>
+                            <div class="post-meta">
+                                <span>6 de marzo de 2026</span>
+                                <span>·</span>
+                                <span>5 min</span>
+                            </div>
+                            <a href="/blog/articulos/aprendizaje-en-el-bosque.html" class="read-more">Leer artículo →</a>
+                        </div>
+                    </article>
 
-                <h2 class="fade-up">¿Qué pasa cuando aprendes afuera?</h2>
+                    <!-- Placeholder → Categoría 1 -->
+                    <article class="post-card fade-up" data-category="categoria-1">
+                        <a href="/blog/articulos/template.html">
+                            <img src="/assets/img/blog/blog-placeholder.png" alt="Título del artículo placeholder">
+                        </a>
+                        <div class="post-card-body">
+                            <div class="post-card-categories">
+                                <span class="article-category" data-filter-link="categoria-1">Categoría 1</span>
+                            </div>
+                            <h3 class="post-card-title">
+                                <a href="/blog/articulos/template.html">Título de artículo</a>
+                            </h3>
+                            <p class="post-card-excerpt">
+                                Descripción breve de este artículo de ejemplo. Aquí irá el resumen del contenido principal cuando esté listo.
+                            </p>
+                            <div class="post-meta">
+                                <span>Próximamente</span>
+                            </div>
+                            <a href="/blog/articulos/template.html" class="read-more">Leer artículo →</a>
+                        </div>
+                    </article>
 
-                <p class="fade-up">
-                    La investigación en neurociencia educativa lleva más de dos décadas documentando algo que los maestros intuitivos ya sabían: el movimiento, la luz natural y los entornos cambiantes activan la atención de manera distinta a como lo hace un salón. No se trata de romantizar la naturaleza; se trata de entender que el cerebro humano evolucionó en entornos abiertos, y que esos entornos todavía lo favorecen.
-                </p>
+                    <!-- Placeholder → Categoría 2 -->
+                    <article class="post-card fade-up" data-category="categoria-2">
+                        <a href="/blog/articulos/template.html">
+                            <img src="/assets/img/blog/blog-placeholder.png" alt="Título del artículo placeholder">
+                        </a>
+                        <div class="post-card-body">
+                            <div class="post-card-categories">
+                                <span class="article-category" data-filter-link="categoria-2">Categoría 2</span>
+                            </div>
+                            <h3 class="post-card-title">
+                                <a href="/blog/articulos/template.html">Título de artículo</a>
+                            </h3>
+                            <p class="post-card-excerpt">
+                                Descripción breve de este artículo de ejemplo. Aquí irá el resumen del contenido principal cuando esté listo.
+                            </p>
+                            <div class="post-meta">
+                                <span>Próximamente</span>
+                            </div>
+                            <a href="/blog/articulos/template.html" class="read-more">Leer artículo →</a>
+                        </div>
+                    </article>
 
-                <p class="fade-up">
-                    En Bilbao, cada nivel tiene una relación distinta con el bosque. En preescolar, es territorio de exploración sensorial: texturas, sonidos, colores que no tienen nombre todavía. En primaria, se convierte en laboratorio de ciencias naturales y matemáticas aplicadas. En secundaria y preparatoria, es el escenario de proyectos interdisciplinarios donde los alumnos resuelven problemas reales —desde el diseño de senderos hasta el monitoreo de fauna local— con metodologías que luego exigen las universidades.
-                </p>
+                    <!-- Placeholder → Categoría 2 -->
+                    <article class="post-card fade-up" data-category="categoria-2">
+                        <a href="/blog/articulos/template.html">
+                            <img src="/assets/img/blog/blog-placeholder.png" alt="Título del artículo placeholder">
+                        </a>
+                        <div class="post-card-body">
+                            <div class="post-card-categories">
+                                <span class="article-category" data-filter-link="categoria-2">Categoría 2</span>
+                            </div>
+                            <h3 class="post-card-title">
+                                <a href="/blog/articulos/template.html">Título de artículo</a>
+                            </h3>
+                            <p class="post-card-excerpt">
+                                Descripción breve de este artículo de ejemplo. Aquí irá el resumen del contenido principal cuando esté listo.
+                            </p>
+                            <div class="post-meta">
+                                <span>Próximamente</span>
+                            </div>
+                            <a href="/blog/articulos/template.html" class="read-more">Leer artículo →</a>
+                        </div>
+                    </article>
 
-                <p class="fade-up">
-                    Lo que une todos estos momentos no es el bosque en sí mismo, sino la actitud con la que los maestros lo usan: como recurso, como desafío, como espejo de lo que se aprende adentro.
-                </p>
+                    <!-- Placeholder → Categoría 3 -->
+                    <article class="post-card fade-up" data-category="categoria-3">
+                        <a href="/blog/articulos/template.html">
+                            <img src="/assets/img/blog/blog-placeholder.png" alt="Título del artículo placeholder">
+                        </a>
+                        <div class="post-card-body">
+                            <div class="post-card-categories">
+                                <span class="article-category" data-filter-link="categoria-3">Categoría 3</span>
+                            </div>
+                            <h3 class="post-card-title">
+                                <a href="/blog/articulos/template.html">Título de artículo</a>
+                            </h3>
+                            <p class="post-card-excerpt">
+                                Descripción breve de este artículo de ejemplo. Aquí irá el resumen del contenido principal cuando esté listo.
+                            </p>
+                            <div class="post-meta">
+                                <span>Próximamente</span>
+                            </div>
+                            <a href="/blog/articulos/template.html" class="read-more">Leer artículo →</a>
+                        </div>
+                    </article>
 
+                    <!-- Placeholder → Categoría 3 -->
+                    <article class="post-card fade-up" data-category="categoria-3">
+                        <a href="/blog/articulos/template.html">
+                            <img src="/assets/img/blog/blog-placeholder.png" alt="Título del artículo placeholder">
+                        </a>
+                        <div class="post-card-body">
+                            <div class="post-card-categories">
+                                <span class="article-category" data-filter-link="categoria-3">Categoría 3</span>
+                            </div>
+                            <h3 class="post-card-title">
+                                <a href="/blog/articulos/template.html">Título de artículo</a>
+                            </h3>
+                            <p class="post-card-excerpt">
+                                Descripción breve de este artículo de ejemplo. Aquí irá el resumen del contenido principal cuando esté listo.
+                            </p>
+                            <div class="post-meta">
+                                <span>Próximamente</span>
+                            </div>
+                            <a href="/blog/articulos/template.html" class="read-more">Leer artículo →</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="empty-state" id="emptyState">
+                    <h3>No hay artículos en esta categoría</h3>
+                    <p>Prueba con otro filtro o vuelve a "Todos".</p>
+                </div>
             </div>
+        </section>
 
-            <!-- DIVIDER -->
-            <div class="article-divider fade-up"></div>
-
-            <!-- TAGS -->
-            <div class="article-tags fade-up">
-                <span class="tag">Vida escolar</span>
-                <span class="tag">Modelo VIDA</span>
-                <span class="tag">Aprendizaje integral</span>
-                <span class="tag">Naturaleza</span>
+        <section class="blog-cta">
+            <div class="container">
+                <div class="blog-cta-box fade-up">
+                    <h3>Conoce el colegio más allá de la pantalla</h3>
+                    <p>
+                        Si alguna de estas historias resuena contigo, agenda una visita guiada y descubre cómo se vive en Bilbao una educación que combina exigencia, sensibilidad y contexto real.
+                    </p>
+                    <a href="https://wa.me/525614612682?text=Hola,%20quiero%20agendar%20una%20visita%20guiada%20al%20Colegio%20Bilbao." class="btn-blog-primary">
+                        Agenda tu visita
+                    </a>
+                </div>
             </div>
+        </section>
 
-            <!-- CTA BLOCK -->
-            <div class="article-cta-block fade-up">
-                <h3>¿Quieres vivir esto de cerca?</h3>
-                <p>Agenda una visita guiada al Colegio Bilbao y conoce los espacios donde sucede la educación que marca diferencia.</p>
-                <a href="https://wa.me/525614612682?text=Hola,%20quiero%20agendar%20una%20visita%20guiada%20al%20Colegio%20Bilbao." class="btn-cta-article">Agenda tu visita →</a>
-            </div>
-
-        </article>
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <p class="footer-copyright">© 2026 Colegio Bilbao. Todos los derechos reservados. · <a href="/aviso-de-privacidad/">Aviso de privacidad</a></p>
     </footer>
 
     <script src="../app.js"></script>
-
 </body>
 </html>
