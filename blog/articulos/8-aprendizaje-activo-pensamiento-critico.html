@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículo | Voces Bilbao</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="/assets/img/global/favicon.png" type="image/png">
+    <link rel="icon" href="/assets/img/global/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header-bar">
+        <div class="header-inner">
+            <a href="/" class="logo-link">
+                <img src="/assets/img/global/logo-bilbao-horizontal-azul.png" alt="Colegio Bilbao" class="logo-img">
+            </a>
+            <div class="header-controls">
+                <div class="lang-switch"><span class="active">ES</span> | <a href="/en/">EN</a></div>
+                <button class="menu-trigger" aria-label="Abrir menú">
+                    <div class="hamburger-icon"><span></span><span></span><span></span></div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- OVERLAY MENU -->
+    <div id="menu-overlay" class="menu-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Menú principal">
+        <div class="overlay-header">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="/assets/img/global/logo-bilbao-horizontal-azul.png" alt="Colegio Bilbao" class="logo-img"></a>
+                <div class="header-controls">
+                    <div class="lang-switch"><span class="active">ES</span> | <a href="/en/">EN</a></div>
+                    <button id="close-menu-btn" class="close-btn" aria-label="Cerrar menú"></button>
+                </div>
+            </div>
+        </div>
+        <nav class="overlay-content">
+            <ul id="primary-nav">
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Conócenos <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/conocenos/quienes-somos/">Quiénes somos</a></li><li><a href="/conocenos/equipo-educativo/">Equipo educativo</a></li><li><a href="/conocenos/instalaciones/">Instalaciones</a></li><li><a href="/conocenos/certificaciones-y-reconocimientos/">Certificaciones y reconocimientos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Modelo educativo <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/modelo-educativo/modelo-vida/">Modelo VIDA</a></li><li><a href="/modelo-educativo/filosofia-y-metodologia/">Filosofía</a></li><li><a href="/modelo-educativo/aprendizaje-integral/">Aprendizaje integral</a></li><li><a href="/modelo-educativo/idiomas/">Idiomas</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Niveles académicos <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/niveles-academicos/preescolar/">Preescolar</a></li><li><a href="/niveles-academicos/primaria/">Primaria</a></li><li><a href="/niveles-academicos/secundaria/">Secundaria</a></li><li><a href="/niveles-academicos/preparatoria/">Preparatoria</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Vida escolar <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/vida-escolar/afterschool-extracurriculares/">Afterschool</a></li><li><a href="/vida-escolar/futuro-universitario-becas/">Futuro universitario</a></li><li><a href="/vida-escolar/programa-dual/">Programa Dual</a></li><li><a href="/vida-escolar/servicios-para-familias/">Servicios</a></li><li><a href="/vida-escolar/cuidado-y-bienestar/">Cuidado y bienestar</a></li><li><a href="/vida-escolar/eventos-y-tradiciones/">Eventos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Admisiones <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/admisiones/">Inicio</a></li><li><a href="/admisiones/proceso/">Proceso</a></li><li><a href="/admisiones/preguntas-frecuentes/">FAQ</a></li><li><a href="/admisiones/convenios/">Convenios</a></li><li><a href="/admisiones/convocatoria-becas/">Becas</a></li><li><a href="/admisiones/contacto/">Contacto</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Comunidad <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/comunidad/estudiantes/">Estudiantes</a></li><li><a href="/comunidad/familias/">Familias</a></li><li><a href="/comunidad/exalumnos/">Exalumnos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Voces Bilbao <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/voces-bilbao/noticias/">Noticias</a></li><li><a href="/voces-bilbao/entrevistas/">Entrevistas</a></li><li><a href="/blog">Artículos</a></li><li><a href="/voces-bilbao/testimonios/">Testimonios</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Contacto <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/contacto/">Contacto</a></li><li><a href="/contacto/directorio/">Directorio</a></li><li><a href="/contacto/cultura-y-talento/">Cultura y talento</a></li><li><a href="/contacto/proveedores/">Proveedores</a></li></ul></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="article-main">
+
+        <!-- PORTADA CON PARALLAX -->
+        <section class="article-hero">
+            <!-- Sustituir src por la imagen real del artículo -->
+            <img
+                id="parallax-img"
+                class="hero-img-parallax"
+                src="/assets/img/blog/8.jpg"
+                alt="Portada del artículo"
+                loading="eager"
+            >
+            <div class="hero-gradient"></div>
+
+            <div class="hero-meta">
+                <span class="article-category article-category-template">Aprendizaje Activo</span>
+                <h1 class="article-title">
+                    Aprendizaje activo y pensamiento crítico: cómo desarrollarlos en niños y adolescentes desde la escuela
+                </h1>
+                <div class="article-byline">
+                    <div class="author-avatar-small">AO</div>
+                    <div class="byline-text">
+                        Por <strong>Alexander Oliva</strong>, Redactor<span class="byline-dot"> · </span>
+                        15 de abril de 2026
+                        <span class="byline-dot"> · </span>
+                        5 min de lectura
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BREADCRUMB -->
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="/">Inicio</a>
+            <span>›</span>
+            <a href="/blog/">Artículos</a>
+            <span>›</span>
+            <span style="color: var(--col-herencia);">Aprendizaje activo y pensamiento crítico</span>
+        </nav>
+
+        <!-- CUERPO DEL ARTÍCULO -->
+        <article class="article-body-wrapper">
+            <div class="article-body">
+
+                <p class="fade-up">
+                    El aprendizaje activo es un enfoque pedagógico en el que el estudiante no recibe información de forma pasiva, sino que participa, cuestiona, investiga y construye su propio conocimiento. Es, precisamente, el entorno ideal para desarrollar el pensamiento crítico: una de las habilidades más valoradas en el mundo actual y una de las más difíciles de cultivar si la escuela solo pide respuestas correctas.
+                </p>
+
+                <p class="fade-up">
+                    En este artículo explicamos qué es el aprendizaje activo, cómo se conecta con el pensamiento crítico y qué estrategias concretas pueden usar escuelas y familias para desarrollarlo desde edades tempranas.
+                </p>
+
+                <h2 class="fade-up">¿Qué es el aprendizaje activo?</h2>
+
+                <p class="fade-up">
+                    El aprendizaje activo es cualquier método de enseñanza que involucra directamente al estudiante en el proceso de aprender. En lugar de escuchar una explicación y copiarla, el alumno analiza, debate, resuelve problemas, experimenta y reflexiona.
+                </p>
+
+                <p class="fade-up">
+                    Este enfoque parte de una premisa simple pero poderosa: se aprende haciendo. Y cuando el aprendizaje ocurre en acción, el pensamiento crítico emerge de forma natural, porque el estudiante tiene que tomar decisiones, evaluar opciones y justificar sus conclusiones.
+                </p>
+
+                <h2 class="fade-up">La conexión entre aprendizaje activo y pensamiento crítico</h2>
+
+                <p class="fade-up">
+                    El pensamiento crítico no aparece de repente. Es una habilidad que se cultiva con tiempo, a través de preguntas, conversaciones y experiencias que invitan al estudiante a mirar el mundo con curiosidad y escepticismo sano.
+                </p>
+
+                <p class="fade-up">
+                    El aprendizaje activo es el contexto donde eso ocurre. Cuando un alumno tiene que defender una postura, comparar fuentes o proponer una solución, ya está ejerciendo el pensamiento crítico. No como ejercicio abstracto, sino como práctica cotidiana.
+                </p>
+
+                <h2 class="fade-up">5 estrategias de aprendizaje activo para desarrollar el pensamiento crítico</h2>
+
+                <h3 class="fade-up">1. Enseñar a preguntar, no solo a responder</h3>
+
+                <p class="fade-up">
+                    Cuando un niño se acostumbra a preguntar, su mente empieza a explorar caminos que una respuesta rápida cierra. Una buena pregunta abre más posibilidades que una explicación directa. En el aula, esto se traduce en docentes que no dan la respuesta de inmediato, sino que devuelven la pregunta: «¿qué crees tú?», «¿por qué puede ser así?», «¿qué pasaría si…?».
+                </p>
+
+                <h3 class="fade-up">2. Comparar fuentes y evaluar información</h3>
+
+                <p class="fade-up">
+                    Los jóvenes de hoy viven rodeados de información, mucha de ella contradictoria o poco confiable. Enseñarles a comparar fuentes, buscar evidencias y reflexionar sobre los argumentos fortalece su capacidad de pensar con claridad. Este ejercicio es especialmente valioso en un entorno digital donde la desinformación circula a la misma velocidad que los hechos.
+                </p>
+
+                <h3 class="fade-up">3. Debates y conversaciones abiertas</h3>
+
+                <p class="fade-up">
+                    Un debate bien llevado sobre una lectura, una película o un tema de actualidad puede convertirse en un pequeño laboratorio de ideas. Cuando los estudiantes escuchan diferentes perspectivas, aprenden algo que ningún libro puede enseñar: que un mismo problema puede tener múltiples lecturas válidas, y que comprender la del otro es parte del pensamiento crítico.
+                </p>
+
+                <h3 class="fade-up">4. Aprendizaje basado en problemas reales</h3>
+
+                <p class="fade-up">
+                    Cuando un grupo de alumnos trabaja en resolver un problema concreto —reducir el desperdicio en la escuela, diseñar una campaña de concientización, proponer mejoras al entorno— tienen que investigar, debatir y evaluar distintos puntos de vista. En ese proceso, el pensamiento crítico deja de ser una materia y se convierte en una práctica cotidiana del aprendizaje activo.
+                </p>
+
+                <h3 class="fade-up">5. Reflexión sobre el propio aprendizaje</h3>
+
+                <p class="fade-up">
+                    Preguntar a los alumnos qué aprendieron, cómo llegaron a esa conclusión y qué cambiarían la próxima vez desarrolla la metacognición: la capacidad de pensar sobre el propio pensamiento. Es una de las formas más poderosas de aprendizaje activo y uno de los indicadores más claros de pensamiento crítico avanzado.
+                </p>
+
+                <h2 class="fade-up">¿Cómo se ve el aprendizaje activo en un aula real?</h2>
+
+                <p class="fade-up">
+                    No todas las escuelas que dicen aplicar aprendizaje activo realmente lo hacen. Algunas señales concretas de que el enfoque está presente en el día a día: los alumnos trabajan en proyectos con objetivos reales y no solo en ejercicios del libro; el error se trata como parte del proceso; los debates tienen espacio dentro de la clase regular; los docentes hacen más preguntas abiertas que cerradas; y los estudiantes pueden explicar por qué llegaron a una respuesta, no solo qué respuesta dieron.
+                </p>
+
+                <h2 class="fade-up">Cómo pueden las familias apoyar el aprendizaje activo en casa</h2>
+
+                <p class="fade-up">
+                    El pensamiento crítico no se desarrolla solo en la escuela. Las conversaciones en casa son igual de importantes. Algunas prácticas sencillas que hacen diferencia: ante una noticia o evento, preguntar qué piensa el niño y por qué cree que pasó; leer juntos y hablar sobre lo que dice el texto, no solo resumirlo; permitir que el niño o adolescente defienda su punto de vista aunque no estés de acuerdo; cuestionar afirmaciones en voz alta preguntando cómo sabemos que algo es cierto; y celebrar las preguntas tanto como las respuestas.
+                </p>
+
+                <h2 class="fade-up">Conclusión: aprender activamente es aprender a pensar</h2>
+
+                <p class="fade-up">
+                    Desarrollar pensamiento crítico significa formar observadores atentos del mundo: niños y jóvenes capaces de cuestionar, analizar y construir su propio criterio. Eso no sucede en un aula donde el alumno solo escucha y copia.
+                </p>
+
+                <p class="fade-up">
+                    El aprendizaje activo es el método. El pensamiento crítico es el resultado. Y una escuela que entiende esa diferencia no solo forma mejores estudiantes: forma mejores personas.
+                </p>
+
+            </div>
+
+            <!-- DIVIDER -->
+            <div class="article-divider fade-up"></div>
+
+            <!-- TAGS -->
+            <div class="article-tags fade-up">
+                <span class="tag">Aprendizaje Activo</span>
+            </div>
+
+            <!-- CTA BLOCK -->
+            <div class="article-cta-block fade-up">
+                <h3>¿Quieres vivir esto de cerca?</h3>
+                <p>Agenda una visita guiada al Colegio Bilbao y conoce los espacios donde sucede la educación que marca diferencia.</p>
+                <a href="https://wa.me/525614612682?text=Hola,%20quiero%20agendar%20una%20visita%20guiada%20al%20Colegio%20Bilbao." class="btn-cta-article">Agenda tu visita →</a>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="footer-copyright">© 2026 Colegio Bilbao. Todos los derechos reservados. · <a href="/aviso-de-privacidad/">Aviso de privacidad</a></p>
+    </footer>
+
+    <script src="../../app.js"></script>
+
+</body>
+</html>

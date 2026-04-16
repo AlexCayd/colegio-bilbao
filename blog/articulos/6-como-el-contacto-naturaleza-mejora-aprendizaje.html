@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículo | Voces Bilbao</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="/assets/img/global/favicon.png" type="image/png">
+    <link rel="icon" href="/assets/img/global/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header-bar">
+        <div class="header-inner">
+            <a href="/" class="logo-link">
+                <img src="/assets/img/global/logo-bilbao-horizontal-azul.png" alt="Colegio Bilbao" class="logo-img">
+            </a>
+            <div class="header-controls">
+                <div class="lang-switch"><span class="active">ES</span> | <a href="/en/">EN</a></div>
+                <button class="menu-trigger" aria-label="Abrir menú">
+                    <div class="hamburger-icon"><span></span><span></span><span></span></div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- OVERLAY MENU -->
+    <div id="menu-overlay" class="menu-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Menú principal">
+        <div class="overlay-header">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="/assets/img/global/logo-bilbao-horizontal-azul.png" alt="Colegio Bilbao" class="logo-img"></a>
+                <div class="header-controls">
+                    <div class="lang-switch"><span class="active">ES</span> | <a href="/en/">EN</a></div>
+                    <button id="close-menu-btn" class="close-btn" aria-label="Cerrar menú"></button>
+                </div>
+            </div>
+        </div>
+        <nav class="overlay-content">
+            <ul id="primary-nav">
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Conócenos <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/conocenos/quienes-somos/">Quiénes somos</a></li><li><a href="/conocenos/equipo-educativo/">Equipo educativo</a></li><li><a href="/conocenos/instalaciones/">Instalaciones</a></li><li><a href="/conocenos/certificaciones-y-reconocimientos/">Certificaciones y reconocimientos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Modelo educativo <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/modelo-educativo/modelo-vida/">Modelo VIDA</a></li><li><a href="/modelo-educativo/filosofia-y-metodologia/">Filosofía</a></li><li><a href="/modelo-educativo/aprendizaje-integral/">Aprendizaje integral</a></li><li><a href="/modelo-educativo/idiomas/">Idiomas</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Niveles académicos <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/niveles-academicos/preescolar/">Preescolar</a></li><li><a href="/niveles-academicos/primaria/">Primaria</a></li><li><a href="/niveles-academicos/secundaria/">Secundaria</a></li><li><a href="/niveles-academicos/preparatoria/">Preparatoria</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Vida escolar <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/vida-escolar/afterschool-extracurriculares/">Afterschool</a></li><li><a href="/vida-escolar/futuro-universitario-becas/">Futuro universitario</a></li><li><a href="/vida-escolar/programa-dual/">Programa Dual</a></li><li><a href="/vida-escolar/servicios-para-familias/">Servicios</a></li><li><a href="/vida-escolar/cuidado-y-bienestar/">Cuidado y bienestar</a></li><li><a href="/vida-escolar/eventos-y-tradiciones/">Eventos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Admisiones <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/admisiones/">Inicio</a></li><li><a href="/admisiones/proceso/">Proceso</a></li><li><a href="/admisiones/preguntas-frecuentes/">FAQ</a></li><li><a href="/admisiones/convenios/">Convenios</a></li><li><a href="/admisiones/convocatoria-becas/">Becas</a></li><li><a href="/admisiones/contacto/">Contacto</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Comunidad <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/comunidad/estudiantes/">Estudiantes</a></li><li><a href="/comunidad/familias/">Familias</a></li><li><a href="/comunidad/exalumnos/">Exalumnos</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Voces Bilbao <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/voces-bilbao/noticias/">Noticias</a></li><li><a href="/voces-bilbao/entrevistas/">Entrevistas</a></li><li><a href="/blog">Artículos</a></li><li><a href="/voces-bilbao/testimonios/">Testimonios</a></li></ul></li>
+                <li class="nav-accordion-item"><button class="nav-accordion-trigger">Contacto <span class="chevron">▼</span></button><ul class="nav-submenu"><li><a href="/contacto/">Contacto</a></li><li><a href="/contacto/directorio/">Directorio</a></li><li><a href="/contacto/cultura-y-talento/">Cultura y talento</a></li><li><a href="/contacto/proveedores/">Proveedores</a></li></ul></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="article-main">
+
+        <!-- PORTADA CON PARALLAX -->
+        <section class="article-hero">
+            <!-- Sustituir src por la imagen real del artículo -->
+            <img
+                id="parallax-img"
+                class="hero-img-parallax"
+                src="/assets/img/blog/6.jpg"
+                alt="Portada del artículo"
+                loading="eager"
+            >
+            <div class="hero-gradient"></div>
+
+            <div class="hero-meta">
+                <span class="article-category article-category-template">Educación Ambiental</span>
+                <h1 class="article-title">
+                    Cómo el contacto con la naturaleza transforma el aprendizaje
+                </h1>
+                <div class="article-byline">
+                    <div class="author-avatar-small">AO</div>
+                    <div class="byline-text">
+                        Por <strong>Alexander Oliva</strong>, Redactor<span class="byline-dot"> · </span>
+                        15 de abril de 2026
+                        <span class="byline-dot"> · </span>
+                        6 min de lectura
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BREADCRUMB -->
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="/">Inicio</a>
+            <span>›</span>
+            <a href="/blog/">Artículos</a>
+            <span>›</span>
+            <span style="color: var(--col-herencia);">Educación ambiental en la escuela</span>
+        </nav>
+
+        <!-- CUERPO DEL ARTÍCULO -->
+        <article class="article-body-wrapper">
+            <div class="article-body">
+
+                <p class="fade-up">
+                    En el Colegio Bilbao, la educación ambiental no se limita a una unidad sobre reciclaje o a una clase de ciencias sobre especies en extinción. Es un eje pedagógico que atraviesa la vida escolar cotidiana, convirtiendo el entorno natural en un espacio activo de aprendizaje donde los estudiantes desarrollan conocimiento, conciencia, responsabilidad y una relación más profunda con el mundo que los rodea.
+                </p>
+
+                <p class="fade-up">
+                    Hay aprendizajes que no suceden frente a una pizarra. Ocurren cuando un niño observa una hoja caer, toca tierra húmeda después de la lluvia o descubre que un insecto puede ser tan fascinante como cualquier libro. En el Colegio Bilbao, estos momentos no son accidentales: son parte de una propuesta educativa intencionada.
+                </p>
+
+                <h2 class="fade-up">¿Qué es la educación ambiental y cómo la entendemos en Bilbao?</h2>
+
+                <p class="fade-up">
+                    La educación ambiental es el proceso formativo que busca desarrollar en los estudiantes el conocimiento, las actitudes y las habilidades necesarias para comprender y cuidar el medio ambiente. En el Colegio Bilbao, este enfoque va más allá de los contenidos ecológicos del currículo: propone abrir la escuela al entorno natural y permitir que el aprendizaje también suceda afuera.
+                </p>
+
+                <p class="fade-up">
+                    Cuando nuestros alumnos exploran los jardines del colegio, participan en proyectos de observación o salen a espacios verdes cercanos, el conocimiento deja de ser abstracto. Las ciencias, la biología, la geografía y hasta las matemáticas se vuelven experiencias concretas: algo que se puede ver, tocar y observar en tiempo real.
+                </p>
+
+                <h2 class="fade-up">Beneficios que vivimos cada día en nuestra comunidad escolar</h2>
+
+                <h3 class="fade-up">Mejora la atención y reduce el estrés</h3>
+
+                <p class="fade-up">
+                    Diversos estudios han documentado que los espacios naturales reducen el estrés y favorecen la concentración. En el Colegio Bilbao, las áreas verdes y las actividades al aire libre funcionan como un regulador emocional natural para nuestros alumnos: un niño que aprende rodeado de árboles, luz natural y aire libre suele estar más dispuesto a observar, preguntar y descubrir.
+                </p>
+
+                <h3 class="fade-up">Estimula la curiosidad y el pensamiento científico</h3>
+
+                <p class="fade-up">
+                    El jardín escolar del Colegio Bilbao es uno de los laboratorios más completos con los que contamos. Un ecosistema vivo plantea más preguntas que cualquier libro de texto: ¿por qué crecen más rápido ciertas plantas? ¿Qué come ese insecto? ¿Cómo cambia el suelo con la lluvia? Aprovechamos esa curiosidad innata para desarrollar el pensamiento científico desde edades tempranas.
+                </p>
+
+                <h3 class="fade-up">Fortalece el bienestar emocional</h3>
+
+                <p class="fade-up">
+                    La naturaleza invita a la calma, al asombro y a la contemplación. En un mundo cada vez más acelerado y digital, los momentos que nuestros alumnos pasan en contacto con el entorno natural les permiten reconectar con su capacidad de explorar. El contacto regular con espacios verdes se asocia con menor ansiedad y mayor estabilidad emocional en niños y adolescentes, algo que los docentes del Colegio Bilbao observamos de forma directa.
+                </p>
+
+                <h3 class="fade-up">Desarrolla responsabilidad y conciencia ecológica</h3>
+
+                <p class="fade-up">
+                    Cuando los alumnos comprenden directamente cómo funciona un ecosistema —cómo crecen las plantas, cómo interactúan los animales, cómo cambia el paisaje con las estaciones— desarrollan una relación más consciente con el medio ambiente. Esta conciencia no se construye leyendo sobre ella: se construye viviéndola, y en el Colegio Bilbao procuramos que así sea.
+                </p>
+
+                <h2 class="fade-up">Cómo implementamos la educación ambiental en el Colegio Bilbao</h2>
+
+                <p class="fade-up">
+                    Nuestra propuesta no depende de tener acceso a un bosque ni de actividades extraordinarias. La educación ambiental en el Colegio Bilbao está integrada en el día a día, con prácticas concretas que forman parte del currículo regular: un jardín escolar activo donde los alumnos siembran, observan y cuidan plantas de forma regular; clases al aire libre en el patio o en espacios verdes cercanos como práctica habitual; proyectos de observación ambiental con seguimiento del clima, la biodiversidad local y los cambios estacionales; compostaje y manejo responsable de los residuos generados en la escuela; y salidas a entornos naturales vinculadas al currículo, organizadas con objetivos de aprendizaje claros y seguimiento en el aula.
+                </p>
+
+                <h2 class="fade-up">Educación ambiental en México: el Colegio Bilbao como referente</h2>
+
+                <p class="fade-up">
+                    México es uno de los países con mayor biodiversidad del mundo, lo que convierte la educación ambiental en una oportunidad pedagógica extraordinaria. Sin embargo, la mayoría de las escuelas todavía tratan los temas ambientales como contenido curricular aislado, desconectado de la experiencia real de los alumnos.
+                </p>
+
+                <p class="fade-up">
+                    En el Colegio Bilbao apostamos por un enfoque diferente: el medio ambiente como eje transversal que atraviesa todas las materias y experiencias del día escolar. Las familias que eligen nuestro colegio no solo buscan que su hijo aprenda sobre ecología; buscan una escuela que forme personas conscientes, capaces de entender el impacto de sus decisiones en el entorno.
+                </p>
+
+                <h2 class="fade-up">Lo que puedes preguntar en tu visita al Colegio Bilbao</h2>
+
+                <p class="fade-up">
+                    Si estás evaluando nuestra propuesta y este tema es importante para tu familia, te invitamos a preguntar durante tu visita: cómo están integrados los espacios verdes en la vida escolar cotidiana; si el contacto con la naturaleza forma parte del currículo o solo aparece en fechas especiales; si los alumnos realizan proyectos de observación o cuidado del entorno de forma continua; cómo maneja el Colegio Bilbao los residuos y el consumo de recursos; y si las salidas a espacios naturales tienen objetivos de aprendizaje definidos.
+                </p>
+
+                <h2 class="fade-up">La naturaleza como salón de clases: la propuesta del Colegio Bilbao</h2>
+
+                <p class="fade-up">
+                    La educación ambiental en el Colegio Bilbao no es un tema opcional ni una actividad de fechas especiales. Es una forma de entender que el conocimiento no solo vive en los libros: también se encuentra en la curiosidad de un niño que está descubriendo el mundo paso a paso, con los pies sobre la tierra.
+                </p>
+
+                <p class="fade-up">
+                    Al integrar el entorno natural como espacio activo de aprendizaje, en el Colegio Bilbao no solo enseñamos ecología: formamos personas más atentas, más curiosas y más responsables. Y eso es exactamente lo que el mundo necesita.
+                </p>
+
+            </div>
+
+            <!-- DIVIDER -->
+            <div class="article-divider fade-up"></div>
+
+            <!-- TAGS -->
+            <div class="article-tags fade-up">
+                <span class="tag">Educación Ambiental</span>
+            </div>
+
+            <!-- CTA BLOCK -->
+            <div class="article-cta-block fade-up">
+                <h3>¿Quieres vivir esto de cerca?</h3>
+                <p>Agenda una visita guiada al Colegio Bilbao y conoce los espacios donde sucede la educación que marca diferencia.</p>
+                <a href="https://wa.me/525614612682?text=Hola,%20quiero%20agendar%20una%20visita%20guiada%20al%20Colegio%20Bilbao." class="btn-cta-article">Agenda tu visita →</a>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="footer-copyright">© 2026 Colegio Bilbao. Todos los derechos reservados. · <a href="/aviso-de-privacidad/">Aviso de privacidad</a></p>
+    </footer>
+
+    <script src="../../app.js"></script>
+
+</body>
+</html>
